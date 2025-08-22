@@ -16,7 +16,7 @@ def example_list_ascending_sorting_evaluation(student_list: ExampleList, provide
         return 100, "Correct.", solution
 
     if student_list.get_data() == provided_list.sorted(sort_ascending=False).get_data():
-        return 45, "You were supposed to sort in ascending order but sorted in descending order."
+        return 45, "You were supposed to sort in ascending order but sorted in descending order.", solution
 
     sorting_violations = get_ascending_violations(student_list)
     missing_values = get_missing_values(student_list, provided_list)
