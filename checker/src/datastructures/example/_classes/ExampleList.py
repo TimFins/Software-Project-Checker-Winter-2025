@@ -24,5 +24,5 @@ class ExampleList:
     def get_data(self) -> list:
         return self._data
 
-    def sorted(self, asc: bool = True) -> ExampleList:
-        return ExampleList(sorted(self._data, reverse=not asc))
+    def sorted(self, sort_ascending: bool = True) -> ExampleList:
+        return ExampleList(sorted(self._data, reverse=not sort_ascending))
