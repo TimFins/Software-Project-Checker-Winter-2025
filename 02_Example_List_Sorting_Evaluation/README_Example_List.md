@@ -4,6 +4,27 @@ The goal of this example is to show you a Python microservice, which provides de
 All the HTTP POST requests for the list sorting topic are sent to the endpoint `/example-list-evaluation`. This endpoint checks which task type should be evaluated based on the `taskType` string contained in the request and forwards the task to the according function. Each of the two tasks which can be evaluated in this microservice, sorting in ascending order and sorting in descending order, has a task type.
 The HTTP POST request's body contains all the information about the task as well as the student's submission needed to evaluate the task. So the route receives the provided list and the student's submission and sends back a grade from 0 to 100, detailled feedback as text and the solution as a response.
 
+## Flask Server
+For the evaluating each task, a HTTP POST request will be sent to the microservice, a web server hosted via flask.
+
+### HTTP Routing
+
+The `checker/src/app.py` file serves as the main entry point for handling requests in the Flask application. It defines the available endpoints, processes incoming data, and returns a response.
+
+### Start server
+
+You can use Flask to start the HTTP server. We recommend running in debug mode, because this way the server automatically restarts when the code changes, so that you do not have to restart the server manually.
+To start the HTTP server run the following command in the command line. You need to be in the directory of `app.py`:
+> flask run --debug
+
+If the `flask` command cannot be located correctly, then you can also try:
+> python -m flask run --debug
+
+Upon success, an HTTP server starts on localhost. You can terminate it using CTRL+C in the terminal.
+
+Since flask usually takes localhost port 5000, you will probably find your HTTP server there. Alternatively, look for the address in the terminal output. Usually it will look like this:
+> * Running on http://127.0.0.1:5000
+
 ### Send request to server
 If the server runs you can send a request to the given server by e.g., using command line tools like cURL or other API tools like Postman/Insomnia. We will be talking later on about Postman/Insomnia.
 You will have to perform a POST request on the endpoint and pass the contents as a JSON body.

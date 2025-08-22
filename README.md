@@ -1,0 +1,1 @@
+# Rough outline about when what should be done, what the project is about and other stuff
