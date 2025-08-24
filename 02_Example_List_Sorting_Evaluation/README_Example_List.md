@@ -5,11 +5,29 @@ All the HTTP POST requests for the list sorting topic are sent to the endpoint `
 The HTTP POST request's body contains all the information about the task as well as the student's submission needed to evaluate the task. So the route receives the provided list and the student's submission and sends back a grade from 0 to 100, detailled feedback as text and the solution as a response.
 
 ## Flask Server
-For the evaluating each task, a HTTP POST request will be sent to the microservice, a web server hosted via flask.
+For evaluating each task, a HTTP POST request will be sent to the microservice, a web server hosted via flask.
 
 ### HTTP Routing
 
-The `checker/src/app.py` file serves as the main entry point for handling requests in the Flask application. It defines the available endpoints, processes incoming data, and returns a response.
+The `checker/app.py` file serves as the main entry point for handling requests in the Flask application. It defines the available endpoints, processes incoming data, and returns a response. There, the evaluation logic is started by calling a function.
+
+### Request
+
+The route requires the following JSON input:
+- The **studentList** (the students submission, **mandatory**).
+- The **providedList** (initial list, **mandatory**).
+- The **taskType** (the task type ("**EXAMPLE_LIST_SORT_ASCENDING**" or "**EXAMPLE_LIST_SORT_DESCENDING**"), **mandatory**).
+
+Inside the route's function, the task is programmatically solved using the **ExampleList** class. The student's submission is then compared against the expected solution, and feedback with an appropriate score is returned.
+
+The request has the following JSON format:
+```json
+{
+    "providedList": ...,
+    "studentList": ...,
+    "taskType": ...
+}
+```
 
 ### Start server
 
@@ -60,27 +78,6 @@ curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -
 Flask uses port 5000 by default. In that case, you can use this command in Windows PowerShell to test the HTTP server.
 ```sh
 Invoke-WebRequest -Uri "http://127.0.0.1:5000/example-list-evaluation" -ContentType "application/json" -Method POST -Body '{"providedList":[1,3,2,7,9,0],"studentList":[0,1,3,2,7,9],"taskType":"EXAMPLE_LIST_SORT_ASCENDING"}'
-```
-
-## HTTP Routing
-
-The `app.py` file serves as the main entry point for handling requests in the Flask application. It defines the available endpoints, processes incoming data, and returns a response. There, the evaluation logic is started by calling a function.
-
-### Request
-
-The route requires the following JSON input:
-- The **studentList** (the submitted solution, **mandatory**).
-- The **providedList** (initial list, **mandatory**).
-
-Inside the route's function, the task is programmatically solved using the **ExampleList** class. The student's submission is then compared against the expected solution, and feedback with an appropriate score is returned.
-
-The request has the following JSON format:
-```json
-{
-    "providedList": ...,
-    "studentList": ...,
-    "taskType": ...
-}
 ```
 
 ### Evaluation functions
