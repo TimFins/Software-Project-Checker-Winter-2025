@@ -25,7 +25,7 @@ except:
         print("Flask package was installed successfully.")
     except:
         print("Flask package is not installed. Please run:")
-        print("pip install Flask")
+        print("(python3 -m) pip install Flask")
 
     try:
         import graphviz
@@ -38,11 +38,11 @@ except:
             print("https://graphviz.org/download/")
     except:
         print("Graphviz package is not installed. Please run:")
-        print("pip install graphviz")
+        print("(python3 -m) pip install graphviz")
 
     try:
         import PIL
         print("Pillow package was installed successfully.")
     except:
         print("Pillow package is not installed. Please run:")
-        print("pip install Pillow")
+        print("(python3 -m) pip install Pillow")
