@@ -11,7 +11,7 @@ def evaluate_priority_queue_task(request: dict) -> tuple[int, str, dict]:
         _): return 0, "Evaluation for this task is not implemented", "{}"
     match task_type:
         case "PRIORITY_QUEUE_EXTRACT_MIN":
-            evaluator_function = evaluate_priority_queue_extract_min_task
+            evaluator_function = evaluate_priority_queue_extract_highest_priority_task
         case "PRIORITY_QUEUE_INSERT":
             evaluator_function = evaluate_priority_queue_insert_task
     score, feedback, solution = evaluator_function(
@@ -20,9 +20,10 @@ def evaluate_priority_queue_task(request: dict) -> tuple[int, str, dict]:
     feedback = feedback.strip()
     return score, feedback, solution
 
-def evaluate_priority_queue_extract_min_task(request: dict):
-    """ A students task is evaluated where the student was asked to extract the minimum from a provided priority queue.
-    The student did so and ended up with the student priority queue which now needs to be evaluated.
+def evaluate_priority_queue_extract_highest_priority_task(request: dict):
+    """ A students task is evaluated where the student was asked to extract the element with the highest priority 
+    from a provided priority queue. The student did so and ended up with the student priority queue which now 
+    needs to be evaluated.
     """
     try:
         student_priority_queue = PriorityQueueNode.from_dict(request["studentPriorityQueue"])
@@ -43,6 +44,10 @@ def evaluate_priority_queue_extract_min_task(request: dict):
             print("ProvidedPriorityQueue is empty.")
     except:
         raise ValueError("ProvidedPriorityQueue has an incorrect format.")
+    
+    print("Is Max Priority Queue:")
+    print(isMaxPriorityQueue(request))
+    
 
     """ Here, after parsing the JSON into the according class structures, the evaluation should take place.
     Therefore, you should first create a solution which is used to compare it against the student priority queue.
@@ -77,6 +82,9 @@ def evaluate_priority_queue_insert_task(request: dict):
     except:
         raise ValueError("ProvidedPriorityQueue has an incorrect format.")
     
+    print("Is Max Priority Queue:")
+    print(isMaxPriorityQueue(request))
+
     values = request.get("values")
     print("Values:")
     print(values)
@@ -89,3 +97,13 @@ def evaluate_priority_queue_insert_task(request: dict):
    
     score, feedback, solution = 100, "The feedback isn't implemented yet.", "The solution isn't implemented yet."
     return score, feedback, solution
+
+def isMaxPriorityQueue(request: dict) -> bool:
+    max_priority_queue_type = request.get("priorityQueueType")
+
+    if max_priority_queue_type == "MAX":
+        return True
+    elif max_priority_queue_type == "MIN":
+        return False
+    else:
+        raise ValueError(f"Invalid priorityQueueType: {max_priority_queue_type}")
