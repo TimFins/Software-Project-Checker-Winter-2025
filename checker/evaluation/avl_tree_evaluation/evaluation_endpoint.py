@@ -1,5 +1,6 @@
 from datastructures.avltree import AVLTreeNode
 
+
 def evaluate_avl_tree_task(request: dict) -> tuple[int, str, dict]:
     """AVL tree evaluation function. Takes in the full request and delegates it to the respective evaluation pipeline.
 
@@ -20,24 +21,25 @@ def evaluate_avl_tree_task(request: dict) -> tuple[int, str, dict]:
     feedback = feedback.strip()
     return score, feedback, solution
 
+
 def evaluate_avl_tree_insert_task(request: dict):
     """ A students task is evaluated where the student was asked to insert the values into the provided avl tree.
     The student did so and ended up with the student avl tree which now needs to be evaluated.
     """
     try:
-        student_avl_tree = AVLTreeNode.from_dict( request["studentAVLTree"])
+        student_avl_tree = AVLTreeNode.from_dict(request["studentAVLTree"])
         print("StudenAVLTree:")
-        if student_avl_tree: 
+        if student_avl_tree:
             student_avl_tree.print_tree()
         else:
             print("StudentAVLTree is empty.")
     except:
         raise ValueError("StudentAVLTree has an incorrect format.")
-    
+
     try:
         print("ProvidedAVLTree:")
         provided_avl_tree = AVLTreeNode.from_dict(request["providedAVLTree"])
-        if provided_avl_tree: 
+        if provided_avl_tree:
             provided_avl_tree.print_tree()
         else:
             print("ProvidedAVLTree is empty.")
@@ -53,28 +55,29 @@ def evaluate_avl_tree_insert_task(request: dict):
     After creating the solution, in different functions comparisons should take place which determine which
     exact mistakes were made and based on that generate the feedback and calculate a score.
     """
-   
+
     score, feedback, solution = 100, "The feedback isn't implemented yet.", "The solution isn't implemented yet."
     return score, feedback, solution
+
 
 def evaluate_avl_tree_delete_task(request: dict):
     """ A students task is evaluated where the student was asked to delete the values from the provided avl tree.
     The student did so and ended up with the student avl tree which now needs to be evaluated.
     """
     try:
-        student_avl_tree = AVLTreeNode.from_dict( request["studentAVLTree"])
+        student_avl_tree = AVLTreeNode.from_dict(request["studentAVLTree"])
         print("StudenAVLTree:")
-        if student_avl_tree: 
+        if student_avl_tree:
             student_avl_tree.print_tree()
         else:
             print("StudentAVLTree is empty.")
     except:
         raise ValueError("StudentAVLTree has an incorrect format.")
-    
+
     try:
         print("ProvidedAVLTree:")
         provided_avl_tree = AVLTreeNode.from_dict(request["providedAVLTree"])
-        if provided_avl_tree: 
+        if provided_avl_tree:
             provided_avl_tree.print_tree()
         else:
             print("ProvidedAVLTree is empty.")
@@ -90,6 +93,6 @@ def evaluate_avl_tree_delete_task(request: dict):
     After creating the solution, in different functions comparisons should take place which determine which
     exact mistakes were made and based on that generate the feedback and calculate a score.
     """
-   
+
     score, feedback, solution = 100, "The feedback isn't implemented yet.", "The solution isn't implemented yet."
     return score, feedback, solution

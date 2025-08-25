@@ -1,16 +1,17 @@
 from __future__ import annotations
 from typing import Self
 from sys import stderr
-from datastructures.priorityqueue._visualization.visualize_priority_queue import generate_binary_tree_image, display_binary_tree_image
+from datastructures.priorityqueue._visualization.visualize_priority_queue import generate_priority_queue_image, display_priority_queue_image
 
 
 class PriorityQueueNode:
-    """Class representing a node in a binary tree.
+    """Class representing a node in a priority queue.
     """
 
     def __init__(self, value: int, left_child: PriorityQueueNode | None = None, right_child: PriorityQueueNode | None = None, parent: PriorityQueueNode | None = None):
         if isinstance(value, dict):
-            raise ValueError("You have passed a dictionary into the PriorityQueueNode constructor")
+            raise ValueError(
+                "You have passed a dictionary into the PriorityQueueNode constructor. Please use the class method 'PriorityQueueNode.from_dict()' instead")
         self.set_value(value)
         self.set_left_child(left_child)
         self.set_right_child(right_child)
@@ -151,7 +152,7 @@ class PriorityQueueNode:
         """Returns a Base64 encoded string containing the PNG image of the tree. Optionally add a title to display on the image.
         """
         try:
-            return generate_binary_tree_image(title, self, show_nil_nodes=False)
+            return generate_priority_queue_image(title, self, show_nil_nodes=False)
         except Exception as e:
             raise Exception(str(e))
 
@@ -167,7 +168,7 @@ class PriorityQueueNode:
             print("""The image could not be shown. In case the error mentions the Graphviz executable, then please make sure that you have installed Graphviz and configured it correctly on your system. 
 Please consult the following error message:""", file=stderr)
             print(e, file=stderr)
-        display_binary_tree_image(b64_encoded_tree_image)
+        display_priority_queue_image(b64_encoded_tree_image)
 
     def deep_copy(self) -> Self:
         """Creates and returns a hard copy of the node and all its subnodes.

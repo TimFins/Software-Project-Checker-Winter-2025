@@ -1,15 +1,17 @@
 from __future__ import annotations
-from json import loads
 from typing import Self
 from sys import stderr
-from datastructures.avltree._visualization.visualize_avl_tree import generate_binary_tree_image, display_binary_tree_image
+from datastructures.avltree._visualization.visualize_avl_tree import generate_avl_tree_image, display_avl_tree_image
 
 
 class AVLTreeNode:
-    """Class representing a node in a binary tree.
+    """Class representing a node in an AVL tree.
     """
 
     def __init__(self, value: int, balance: int = 0, left_child: AVLTreeNode | None = None, right_child: AVLTreeNode | None = None, parent: AVLTreeNode | None = None):
+        if isinstance(value, dict):
+            raise ValueError(
+                "You have passed a dictionary into the AVLTreeNode constructor. Please use the class method 'AVLTreeNode.from_dict()' instead")
         self.set_value(value)
         self.set_balance(balance)
         self.set_left_child(left_child)
@@ -165,7 +167,7 @@ class AVLTreeNode:
         """Returns a Base64 encoded string containing the PNG image of the tree. Optionally add a title to display on the image.
         """
         try:
-            return generate_binary_tree_image(title, self, show_nil_nodes=False)
+            return generate_avl_tree_image(title, self, show_nil_nodes=False)
         except Exception as e:
             raise Exception(str(e))
 
@@ -181,7 +183,7 @@ class AVLTreeNode:
             print("""The image could not be shown. In case the error mentions the Graphviz executable, then please make sure that you have installed Graphviz and configured it correctly on your system. 
 Please consult the following error message:""", file=stderr)
             print(e, file=stderr)
-        display_binary_tree_image(b64_encoded_tree_image)
+        display_avl_tree_image(b64_encoded_tree_image)
 
     def deep_copy(self) -> Self:
         """Creates and returns a hard copy of the node and all its subnodes.
@@ -191,7 +193,7 @@ Please consult the following error message:""", file=stderr)
 
     @classmethod
     def from_dict(cls, data: dict[str, any]) -> AVLTreeNode | None:
-        if data is None or data == {} :
+        if data is None or data == {}:
             return None
         if not isinstance(data, dict) or "value" not in data.keys():
             raise ValueError(
