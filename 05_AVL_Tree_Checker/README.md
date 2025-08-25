@@ -29,7 +29,7 @@ The request has the following JSON format:
 Flask uses port 5000 by default. In that case, you can use this cURL command to test the HTTP server.
 
 ```sh
-TODO: Insert example cURL request
+curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"studentAVLTree":{"value":5,"balance":-1,"left":{"value":3,"balance":0,"left":{"value":1,"balance":0,"left":null,"right":null},"right":{"value":4,"balance":0,"left":null,"right":null}},"right":{"value":7,"balance":-1,"left":{"value":6,"balance":0,"left":null,"right":null},"right":{"value":9,"balance":1,"left":{"value":8,"balance":0,"left":null,"right":null},"right":null}}},"providedAVLTree":{"value":5,"balance":0,"left":{"value":3,"balance":0,"left":{"value":1,"balance":0,"left":null,"right":null},"right":{"value":4,"balance":0,"left":null,"right":null}},"right":{"value":7,"balance":-1,"left":null,"right":{"value":9,"balance":0,"left":null,"right":null}}},"values":[6,8],"taskType":"AVL_TREE_INSERT"}' http://127.0.0.1:5000/avl-tree-evaluation
 ```
 
 ### Example request using PowerShell on Windows
@@ -37,7 +37,7 @@ TODO: Insert example cURL request
 Flask uses port 5000 by default. In that case, you can use this command in Windows PowerShell to test the HTTP server.
 
 ```sh
-TODO: Insert example PowerShell request
+Invoke-WebRequest -Uri "http://127.0.0.1:5000/avl-tree-evaluation" -ContentType "application/json" -Method POST -Body '{"studentAVLTree":{"value":5,"balance":-1,"left":{"value":3,"balance":0,"left":{"value":1,"balance":0,"left":null,"right":null},"right":{"value":4,"balance":0,"left":null,"right":null}},"right":{"value":7,"balance":-1,"left":{"value":6,"balance":0,"left":null,"right":null},"right":{"value":9,"balance":1,"left":{"value":8,"balance":0,"left":null,"right":null},"right":null}}},"providedAVLTree":{"value":5,"balance":0,"left":{"value":3,"balance":0,"left":{"value":1,"balance":0,"left":null,"right":null},"right":{"value":4,"balance":0,"left":null,"right":null}},"right":{"value":7,"balance":-1,"left":null,"right":{"value":9,"balance":0,"left":null,"right":null}}},"values":[6,8],"taskType":"AVL_TREE_INSERT"}'
 ```
 
 ### More requests when using Insomnia

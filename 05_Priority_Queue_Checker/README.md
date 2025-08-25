@@ -55,7 +55,7 @@ The request has the following JSON format:
 Flask uses port 5000 by default. In that case, you can use this cURL command to test the HTTP server.
 
 ```sh
-TODO: Insert example cURL request
+curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"studentPriorityQueue":{"value":3,"left":{"value":4,"left":null,"right":null},"right":{"value":5,"left":null,"right":null}},"providedPriorityQueue":{"value":1,"left":{"value":2,"left":{"value":4,"left":null,"right":null},"right":{"value":5,"left":null,"right":null}},"right":{"value":3,"left":null,"right":null}},"priorityQueueType":"MIN","extractCount":3,"taskType":"PRIORITY_QUEUE_EXTRACT_HIGHEST_PRIORITY"}' http://127.0.0.1:5000/priority-queue-evaluation
 ```
 
 ### Example request using PowerShell on Windows
@@ -63,7 +63,7 @@ TODO: Insert example cURL request
 Flask uses port 5000 by default. In that case, you can use this command in Windows PowerShell to test the HTTP server.
 
 ```sh
-TODO: Insert example PowerShell request
+Invoke-WebRequest -Uri "http://127.0.0.1:5000/priority-queue-evaluation" -ContentType "application/json" -Method POST -Body '{"studentPriorityQueue":{"value":3,"left":{"value":4,"left":null,"right":null},"right":{"value":5,"left":null,"right":null}},"providedPriorityQueue":{"value":1,"left":{"value":2,"left":{"value":4,"left":null,"right":null},"right":{"value":5,"left":null,"right":null}},"right":{"value":3,"left":null,"right":null}},"priorityQueueType":"MIN","extractCount":3,"taskType":"PRIORITY_QUEUE_EXTRACT_HIGHEST_PRIORITY"}' 
 ```
 
 ### More requests when using Insomnia
