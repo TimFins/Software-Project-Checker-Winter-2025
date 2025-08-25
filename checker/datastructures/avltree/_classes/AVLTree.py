@@ -1,14 +1,8 @@
 from __future__ import annotations
+from json import loads
 from typing import Self
 from sys import stderr
-
-
-def generate_binary_tree_image():
-    return None
-
-
-def display_binary_tree_image():
-    return None
+from datastructures.avltree._visualization.visualize_avl_tree import generate_binary_tree_image, display_binary_tree_image
 
 
 class AVLTree:
@@ -21,10 +15,6 @@ class AVLTree:
         self.set_left_child(left_child)
         self.set_right_child(right_child)
         self.set_parent(parent)
-
-    # def __init__(self, data: dict):
-    #    pass
-    #    # Polymorphism: Accept dict to use constructor instead of from_json()
 
     def __repr__(self) -> str:
         return f"AVLTree[{str(self.get_value())}]"

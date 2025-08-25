@@ -1,26 +1,20 @@
 from __future__ import annotations
 from typing import Self
 from sys import stderr
+from datastructures.priorityqueue._visualization.visualize_priority_queue import generate_binary_tree_image, display_binary_tree_image
 
-def generate_binary_tree_image():
-    return None
-
-def display_binary_tree_image():
-    return None
 
 class PriorityQueue:
     """Class representing a node in a binary tree.
     """
 
     def __init__(self, value: int, left_child: PriorityQueue | None = None, right_child: PriorityQueue | None = None, parent: PriorityQueue | None = None):
+        if isinstance(value, dict):
+            raise ValueError("You have passed a dictionary into the PriorityQueue constructor")
         self.set_value(value)
-        self._left = left_child
-        self._right = right_child
-        self._parent = parent
-        
-    def __init__(self, data: dict):
-        pass
-        # Polymorphism: Accept dict to use constructor instead of from_json()
+        self.set_left_child(left_child)
+        self.set_right_child(right_child)
+        self.set_parent(parent)
 
     def __repr__(self) -> str:
         return f"PriorityQueue[{str(self.get_value())}]"
