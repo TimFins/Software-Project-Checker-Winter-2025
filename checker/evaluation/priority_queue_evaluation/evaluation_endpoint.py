@@ -11,7 +11,7 @@ def evaluate_priority_queue_task(request: dict) -> tuple[int, str, dict]:
     def evaluator_function(
         _): return 0, "Evaluation for this task is not implemented", "{}"
     match task_type:
-        case "PRIORITY_QUEUE_EXTRACT_MIN":
+        case "PRIORITY_QUEUE_EXTRACT_HIGHEST_PRIORITY":
             evaluator_function = evaluate_priority_queue_extract_highest_priority_task
         case "PRIORITY_QUEUE_INSERT":
             evaluator_function = evaluate_priority_queue_insert_task
