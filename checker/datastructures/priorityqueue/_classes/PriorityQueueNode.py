@@ -177,7 +177,7 @@ Please consult the following error message:""", file=stderr)
 
     @classmethod
     def from_dict(cls, data: dict[str, any]) -> PriorityQueueNode | None:
-        if data is None:
+        if data is None or data == {}:
             return None
         if not isinstance(data, dict) or "value" not in data.keys():
             raise ValueError(
