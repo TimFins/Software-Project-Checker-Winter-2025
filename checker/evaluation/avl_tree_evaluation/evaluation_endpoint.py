@@ -28,7 +28,7 @@ def evaluate_avl_tree_insert_task(request: dict):
     """
     try:
         student_avl_tree = AVLTreeNode.from_dict(request["studentAVLTree"])
-        print("StudenAVLTree:")
+        print("StudentAVLTree:")
         if student_avl_tree:
             student_avl_tree.print_tree()
         else:
