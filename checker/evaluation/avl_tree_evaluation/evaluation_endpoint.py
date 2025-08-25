@@ -1,4 +1,4 @@
-from datastructures.avltree import AVLTree
+from datastructures.avltree import AVLTreeNode
 
 def evaluate_avl_tree_task(request: dict) -> tuple[int, str, dict]:
     """AVL tree evaluation function. Takes in the full request and delegates it to the respective evaluation pipeline.
@@ -25,7 +25,7 @@ def evaluate_avl_tree_insert_task(request: dict):
     The student did so and ended up with the student avl tree which now needs to be evaluated.
     """
     try:
-        student_avl_tree = AVLTree.from_dict( request["studentAVLTree"])
+        student_avl_tree = AVLTreeNode.from_dict( request["studentAVLTree"])
         print("StudenAVLTree:")
         if student_avl_tree: 
             student_avl_tree.print_tree()
@@ -36,7 +36,7 @@ def evaluate_avl_tree_insert_task(request: dict):
     
     try:
         print("ProvidedAVLTree:")
-        provided_avl_tree = AVLTree.from_dict(request["providedAVLTree"])
+        provided_avl_tree = AVLTreeNode.from_dict(request["providedAVLTree"])
         if provided_avl_tree: 
             provided_avl_tree.print_tree()
         else:
@@ -62,7 +62,7 @@ def evaluate_avl_tree_delete_task(request: dict):
     The student did so and ended up with the student avl tree which now needs to be evaluated.
     """
     try:
-        student_avl_tree = AVLTree.from_dict( request["studentAVLTree"])
+        student_avl_tree = AVLTreeNode.from_dict( request["studentAVLTree"])
         print("StudenAVLTree:")
         if student_avl_tree: 
             student_avl_tree.print_tree()
@@ -73,7 +73,7 @@ def evaluate_avl_tree_delete_task(request: dict):
     
     try:
         print("ProvidedAVLTree:")
-        provided_avl_tree = AVLTree.from_dict(request["providedAVLTree"])
+        provided_avl_tree = AVLTreeNode.from_dict(request["providedAVLTree"])
         if provided_avl_tree: 
             provided_avl_tree.print_tree()
         else:

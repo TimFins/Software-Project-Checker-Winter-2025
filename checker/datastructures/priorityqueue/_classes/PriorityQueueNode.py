@@ -4,13 +4,13 @@ from sys import stderr
 from datastructures.priorityqueue._visualization.visualize_priority_queue import generate_binary_tree_image, display_binary_tree_image
 
 
-class PriorityQueue:
+class PriorityQueueNode:
     """Class representing a node in a binary tree.
     """
 
-    def __init__(self, value: int, left_child: PriorityQueue | None = None, right_child: PriorityQueue | None = None, parent: PriorityQueue | None = None):
+    def __init__(self, value: int, left_child: PriorityQueueNode | None = None, right_child: PriorityQueueNode | None = None, parent: PriorityQueueNode | None = None):
         if isinstance(value, dict):
-            raise ValueError("You have passed a dictionary into the PriorityQueue constructor")
+            raise ValueError("You have passed a dictionary into the PriorityQueueNode constructor")
         self.set_value(value)
         self.set_left_child(left_child)
         self.set_right_child(right_child)
@@ -19,7 +19,7 @@ class PriorityQueue:
     def __repr__(self) -> str:
         return f"PriorityQueue[{str(self.get_value())}]"
 
-    def __eq__(self, other: PriorityQueue) -> bool:
+    def __eq__(self, other: PriorityQueueNode) -> bool:
         if type(self) != type(other):
             return False
         return self.get_value() == other.get_value()
@@ -176,7 +176,7 @@ Please consult the following error message:""", file=stderr)
         return type(self).from_dict(self.to_dict())
 
     @classmethod
-    def from_dict(cls, data: dict[str, any]) -> PriorityQueue | None:
+    def from_dict(cls, data: dict[str, any]) -> PriorityQueueNode | None:
         if data is None:
             return None
         if not isinstance(data, dict) or "value" not in data.keys():
@@ -192,8 +192,8 @@ Please consult the following error message:""", file=stderr)
         return node
 
     @classmethod
-    def _create_node_from_dict(cls, data: dict[str, any]) -> PriorityQueue:
+    def _create_node_from_dict(cls, data: dict[str, any]) -> PriorityQueueNode:
         if "color" in data:
             raise ValueError(
-                "PriorityQueue does not accept a 'color' attribute")
+                "PriorityQueueNode does not accept a 'color' attribute")
         return cls(data["value"])

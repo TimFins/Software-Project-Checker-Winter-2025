@@ -1,3 +1,3 @@
-from ._classes.AVLTree import AVLTree
+from ._classes.AVLTreeNode import AVLTreeNode
 
-__all__ = ["AVLTree"]
+__all__ = ["AVLTreeNode"]

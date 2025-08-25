@@ -6,10 +6,10 @@ from PIL import Image
 from io import BytesIO
 
 if TYPE_CHECKING:
-    from datastructures.priorityqueue._classes.PriorityQueue import PriorityQueue
+    from checker.datastructures.priorityqueue._classes.PriorityQueueNode import PriorityQueueNode
 
 
-def _get_tree_height(node: PriorityQueue, show_nil_nodes: bool):
+def _get_tree_height(node: PriorityQueueNode, show_nil_nodes: bool):
     left = node.get_left_child()
     right = node.get_right_child()
     left_height = (1 if show_nil_nodes else 0) if left is None else _get_tree_height(
@@ -19,7 +19,7 @@ def _get_tree_height(node: PriorityQueue, show_nil_nodes: bool):
     return max(left_height, right_height) + 1
 
 
-def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node: PriorityQueue, maxdepth, parent_id="", parent_direction="_", depth=0):
+def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node: PriorityQueueNode, maxdepth, parent_id="", parent_direction="_", depth=0):
     if node == "NIL":
         if depth < maxdepth:
             node_id = parent_id + parent_direction + "NIL"
@@ -69,7 +69,7 @@ def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node: PriorityQue
                   maxdepth, node_id, ">", depth+1)
 
 
-def generate_binary_tree_image(title, tree: PriorityQueue, show_nil_nodes: bool) -> str | None:
+def generate_binary_tree_image(title, tree: PriorityQueueNode, show_nil_nodes: bool) -> str | None:
     """Creates an image of the tree and returns it as a base64 encoded string of a pdf.
     """
     try:

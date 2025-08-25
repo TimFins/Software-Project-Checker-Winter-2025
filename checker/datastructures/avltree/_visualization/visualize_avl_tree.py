@@ -6,10 +6,10 @@ from PIL import Image
 from io import BytesIO
 
 if TYPE_CHECKING:
-    from datastructures.avltree._classes.AVLTree import AVLTree
+    from checker.datastructures.avltree._classes.AVLTreeNode import AVLTreeNode
 
 
-def _get_tree_height(node: AVLTree, show_nil_nodes: bool):
+def _get_tree_height(node: AVLTreeNode, show_nil_nodes: bool):
     left = node.get_left_child()
     right = node.get_right_child()
     left_height = (1 if show_nil_nodes else 0) if left is None else _get_tree_height(
@@ -19,7 +19,7 @@ def _get_tree_height(node: AVLTree, show_nil_nodes: bool):
     return max(left_height, right_height) + 1
 
 
-def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node: AVLTree, maxdepth, parent_id="", parent_direction="_", depth=0):
+def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node: AVLTreeNode, maxdepth, parent_id="", parent_direction="_", depth=0):
     if node == "NIL":
         if depth < maxdepth:
             node_id = parent_id + parent_direction + "NIL"
@@ -71,7 +71,7 @@ def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node: AVLTree, ma
                   maxdepth, node_id, ">", depth+1)
 
 
-def generate_binary_tree_image(title, tree: AVLTree, show_nil_nodes: bool) -> str | None:
+def generate_binary_tree_image(title, tree: AVLTreeNode, show_nil_nodes: bool) -> str | None:
     """Creates an image of the tree and returns it as a base64 encoded string of a pdf.
     """
     try:

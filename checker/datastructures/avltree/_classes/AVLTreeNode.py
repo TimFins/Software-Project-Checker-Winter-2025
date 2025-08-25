@@ -5,11 +5,11 @@ from sys import stderr
 from datastructures.avltree._visualization.visualize_avl_tree import generate_binary_tree_image, display_binary_tree_image
 
 
-class AVLTree:
+class AVLTreeNode:
     """Class representing a node in a binary tree.
     """
 
-    def __init__(self, value: int, balance: int = 0, left_child: AVLTree | None = None, right_child: AVLTree | None = None, parent: AVLTree | None = None):
+    def __init__(self, value: int, balance: int = 0, left_child: AVLTreeNode | None = None, right_child: AVLTreeNode | None = None, parent: AVLTreeNode | None = None):
         self.set_value(value)
         self.set_balance(balance)
         self.set_left_child(left_child)
@@ -19,7 +19,7 @@ class AVLTree:
     def __repr__(self) -> str:
         return f"AVLTree[{str(self.get_value())}]"
 
-    def __eq__(self, other: AVLTree) -> bool:
+    def __eq__(self, other: AVLTreeNode) -> bool:
         if type(self) != type(other):
             return False
         return self.get_value() == other.get_value() and self.get_balance() == other.get_balance()
@@ -190,7 +190,7 @@ Please consult the following error message:""", file=stderr)
         return type(self).from_dict(self.to_dict())
 
     @classmethod
-    def from_dict(cls, data: dict[str, any]) -> AVLTree | None:
+    def from_dict(cls, data: dict[str, any]) -> AVLTreeNode | None:
         if data is None or data == {} :
             return None
         if not isinstance(data, dict) or "value" not in data.keys():
@@ -209,5 +209,5 @@ Please consult the following error message:""", file=stderr)
         return node
 
     @classmethod
-    def _create_node_from_dict(cls, data: dict[str, any]) -> AVLTree:
+    def _create_node_from_dict(cls, data: dict[str, any]) -> AVLTreeNode:
         return cls(data["value"], data["balance"])

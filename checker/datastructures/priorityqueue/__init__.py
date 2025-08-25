@@ -1,3 +1,3 @@
-from ._classes.PriorityQueue import PriorityQueue
+from ._classes.PriorityQueueNode import PriorityQueueNode
 
-__all__ = ["PriorityQueue"]
+__all__ = ["PriorityQueueNode"]
