@@ -1,2 +1,28 @@
-Grobe Beschreibung des Algorithmus
-Source code bereitstellen
+# AVL Trees – Overview
+
+Within this directory you will find a python implementation for AVL trees which you can later on use to create your implementation. Please note that probably not all functions listed below, which are typically used for AVL trees, are implemented. Additionally, the implementation of the AVL trees in this directory will be different to the one you will create later on because the data structure you will be using is predefined and different to the one in here. Logically, it will be exactly the same.
+
+Please have a look into the implementation and play around with it.
+
+An **AVL tree** is a type of self-balancing binary search tree (BST).  
+It maintains the property that for every node, the height difference (balance factor)  
+between its left and right subtree is at most **1**.
+
+## Key Properties
+- **Binary Search Tree (BST) property**:  
+  Left child < Parent < Right child
+- **Balance property**:  
+  |height(left) – height(right)| ≤ 1
+
+## Core Functions
+
+### 1. `insert(value)`
+- Insert a new node like in a BST.
+- Update heights and balance factors.
+- Perform rotations if the balance factor of any node becomes `-2` or `+2`.
+
+### 2. `search(value)`
+- Standard BST search:
+  - Traverse left if value < current node.
+  - Traverse right if value > current node.
+  - Return node if found.
