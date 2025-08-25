@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from evaluation import evaluate_list_sorting_task
+from evaluation import evaluate_list_sorting_task, evaluate_avl_tree_task
 
 app = Flask(__name__)
 
@@ -20,6 +20,19 @@ def example_route():
         return jsonify({"error": "Invalid JSON"}), 400
     try:
         score, feedback, solution = evaluate_list_sorting_task(data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
+    return jsonify({"score": score, "feedback": feedback, "solution": solution})
+
+@app.route("/avl-tree-evaluation", methods=["POST"])
+def evaluate_avl_tree_route():
+    print("A request has arrived!")
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"error": "Invalid JSON"}), 400
+    try:
+        score, feedback, solution = evaluate_avl_tree_task(data)
     except Exception as e:
         return jsonify({"error": str(e)}), 400
     return jsonify({"score": score, "feedback": feedback, "solution": solution})
