@@ -3,6 +3,7 @@ from evaluation import evaluate_list_sorting_task, evaluate_avl_tree_task, evalu
 
 app = Flask(__name__)
 
+
 @app.route("/", methods=["GET"])
 def index():
     return """<h1>Connection Established</h1><p>The HTTP Server is running. Please note, that in order to actually use this service, you have to send POST requests to the implemented routes.</p><p>This page serves no functional purpose.</p>"""
@@ -24,6 +25,7 @@ def example_route():
         return jsonify({"error": str(e)}), 400
     return jsonify({"score": score, "feedback": feedback, "solution": solution})
 
+
 @app.route("/avl-tree-evaluation", methods=["POST"])
 def evaluate_avl_tree_route():
     print("A request has arrived!")
@@ -36,6 +38,7 @@ def evaluate_avl_tree_route():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
     return jsonify({"score": score, "feedback": feedback, "solution": solution})
+
 
 @app.route("/priority-queue-evaluation", methods=["POST"])
 def evaluate_priority_queue_route():

@@ -69,7 +69,7 @@ def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node: PriorityQue
                   maxdepth, node_id, ">", depth+1)
 
 
-def generate_binary_tree_image(title, tree: PriorityQueueNode, show_nil_nodes: bool) -> str | None:
+def generate_priority_queue_image(title, tree: PriorityQueueNode, show_nil_nodes: bool) -> str | None:
     """Creates an image of the tree and returns it as a base64 encoded string of a pdf.
     """
     try:
@@ -87,7 +87,7 @@ def generate_binary_tree_image(title, tree: PriorityQueueNode, show_nil_nodes: b
         raise e
 
 
-def display_binary_tree_image(b64_image: str | None):
+def display_priority_queue_image(b64_image: str | None):
     if not b64_image:
         return
     img = Image.open(BytesIO(base64.b64decode(b64_image)))

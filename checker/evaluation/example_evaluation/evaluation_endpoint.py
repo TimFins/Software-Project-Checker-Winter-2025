@@ -2,6 +2,7 @@ from datastructures.example import ExampleList
 from .list_evaluation_ascending.example_list_ascending_sorting_evaluation import example_list_ascending_sorting_evaluation
 from .list_evaluation_descending.example_list_descending_sorting_evaluation import example_list_descending_sorting_evaluation
 
+
 def evaluate_list_sorting_task(request: dict) -> tuple[int, str, dict]:
     """Generic example list evaluation function. Takes in the full request and delegates it to the respective evaluation pipeline.
 
@@ -22,33 +23,34 @@ def evaluate_list_sorting_task(request: dict) -> tuple[int, str, dict]:
     feedback = feedback.strip()
     return score, feedback, solution
 
+
 def evaluate_ascending_sorting_task(request: dict):
     try:
         student_list = ExampleList(request["studentList"])
     except:
         raise ValueError("StudentList has an incorrect format.")
-    
+
     try:
         provided_list = ExampleList(request["providedList"])
     except:
         raise ValueError("ProvidedList has an incorrect format.")
-    
-   
+
     score, feedback, solution = example_list_ascending_sorting_evaluation(
         student_list, provided_list)
     return score, feedback, solution.get_data() if solution else '{}'
+
 
 def evaluate_descending_sorting_task(request: dict):
     try:
         student_list = ExampleList(request["studentList"])
     except:
         raise ValueError("StudentList has an incorrect format.")
-    
+
     try:
         provided_list = ExampleList(request["providedList"])
     except:
         raise ValueError("ProvidedList has an incorrect format.")
-    
+
     score, feedback, solution = example_list_descending_sorting_evaluation(
         student_list, provided_list)
     return score, feedback, solution.get_data() if solution else '{}'
