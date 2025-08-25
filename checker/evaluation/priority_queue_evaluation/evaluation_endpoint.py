@@ -21,6 +21,7 @@ def evaluate_priority_queue_task(request: dict) -> tuple[int, str, dict]:
     feedback = feedback.strip()
     return score, feedback, solution
 
+
 def evaluate_priority_queue_extract_highest_priority_task(request: dict):
     """ A students task is evaluated where the student was asked to extract the element with the highest priority 
     from a provided priority queue. The student did so and ended up with the student priority queue which now 
@@ -47,10 +48,9 @@ def evaluate_priority_queue_extract_highest_priority_task(request: dict):
             print("ProvidedPriorityQueue is empty.")
     except:
         raise ValueError("ProvidedPriorityQueue has an incorrect format.")
-    
+
     print("Is Max Priority Queue:")
     print(isMaxPriorityQueue(request))
-    
 
     """ Here, after parsing the JSON into the according class structures, the evaluation should take place.
     Therefore, you should first create a solution which is used to compare it against the student priority queue.
@@ -87,7 +87,7 @@ def evaluate_priority_queue_insert_task(request: dict):
             print("ProvidedPriorityQueue is empty.")
     except:
         raise ValueError("ProvidedPriorityQueue has an incorrect format.")
-    
+
     print("Is Max Priority Queue:")
     print(isMaxPriorityQueue(request))
 
@@ -104,6 +104,7 @@ def evaluate_priority_queue_insert_task(request: dict):
     score, feedback, solution = 100, "The feedback isn't implemented yet.", "The solution isn't implemented yet."
     return score, feedback, solution
 
+
 def isMaxPriorityQueue(request: dict) -> bool:
     max_priority_queue_type = request.get("priorityQueueType")
 
@@ -112,4 +113,5 @@ def isMaxPriorityQueue(request: dict) -> bool:
     elif max_priority_queue_type == "MIN":
         return False
     else:
-        raise ValueError(f"Invalid priorityQueueType: {max_priority_queue_type}")
+        raise ValueError(
+            f"Invalid priorityQueueType: {max_priority_queue_type}")
