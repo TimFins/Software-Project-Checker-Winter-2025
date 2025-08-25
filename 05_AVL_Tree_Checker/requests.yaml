@@ -14,7 +14,7 @@ collection:
       sortKey: -1756127139580
       description: ""
     children:
-      - url: http://127.0.0.1:8000/avl-tree-evaluation
+      - url: http://127.0.0.1:5000/avl-tree-evaluation
         name: Correct
         meta:
           id: req_b14940f9d0294ebcad59d5ac4d7bb700
@@ -116,7 +116,7 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://127.0.0.1:8000/avl-tree-evaluation
+      - url: http://127.0.0.1:5000/avl-tree-evaluation
         name: All values inserted but one rebalance factor wrong
         meta:
           id: req_69370dd9e0bb43cc9e4134bb6d8f8eb5
@@ -218,7 +218,7 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://127.0.0.1:8000/avl-tree-evaluation
+      - url: http://127.0.0.1:5000/avl-tree-evaluation
         name: One value not inserted
         meta:
           id: req_856f6ecaf73248f0930e29498372a5cf
@@ -315,7 +315,7 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://127.0.0.1:8000/avl-tree-evaluation
+      - url: http://127.0.0.1:5000/avl-tree-evaluation
         name: One value to much
         meta:
           id: req_6c85f007393447bea299dbd85bdefde6
@@ -422,7 +422,7 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://127.0.0.1:8000/avl-tree-evaluation
+      - url: http://127.0.0.1:5000/avl-tree-evaluation
         name: Correct but added values in wrong order
         meta:
           id: req_842fd74ad6084fc18781fee75e830a64
