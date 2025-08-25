@@ -58,7 +58,7 @@ def evaluate_priority_queue_extract_highest_priority_task(request: dict):
     exact mistakes were made and based on that generate the feedback and calculate a score.
     """
 
-    score, feedback, solution = 100, "The feedback isn't implemented yet.", "The solution isn't implemented yet."
+    score, feedback, solution = 100, f"The feedback isn't implemented yet for priority queue (extract highest priority): {'MAX' if isMaxPriorityQueue(request) else 'MIN'}", "The solution isn't implemented yet."
     return score, feedback, solution
 
 
@@ -101,7 +101,7 @@ def evaluate_priority_queue_insert_task(request: dict):
     exact mistakes were made and based on that generate the feedback and calculate a score.
     """
 
-    score, feedback, solution = 100, "The feedback isn't implemented yet.", "The solution isn't implemented yet."
+    score, feedback, solution = 100, f"The feedback isn't implemented yet for priority queue (insert): {'max' if isMaxPriorityQueue(request) else 'min'}", "The solution isn't implemented yet."
     return score, feedback, solution
 
 

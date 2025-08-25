@@ -56,7 +56,7 @@ def evaluate_avl_tree_insert_task(request: dict):
     exact mistakes were made and based on that generate the feedback and calculate a score.
     """
 
-    score, feedback, solution = 100, "The feedback isn't implemented yet.", "The solution isn't implemented yet."
+    score, feedback, solution = 100, "The feedback isn't implemented yet for avl tree insert.", "The solution isn't implemented yet."
     return score, feedback, solution
 
 
@@ -94,5 +94,5 @@ def evaluate_avl_tree_delete_task(request: dict):
     exact mistakes were made and based on that generate the feedback and calculate a score.
     """
 
-    score, feedback, solution = 100, "The feedback isn't implemented yet.", "The solution isn't implemented yet."
+    score, feedback, solution = 100, "The feedback isn't implemented yet for avl tree delete.", "The solution isn't implemented yet."
     return score, feedback, solution
