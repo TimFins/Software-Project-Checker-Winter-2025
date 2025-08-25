@@ -1,0 +1,539 @@
+type: collection.insomnia.rest/5.0
+name: AVL Tree
+meta:
+  id: wrk_25ccaf886aca4006ad81db018b65c2e6
+  created: 1756127125420
+  modified: 1756127125420
+  description: ""
+collection:
+  - name: Insert
+    meta:
+      id: fld_8f0786b818e74421b6a908f8f7788f7c
+      created: 1756127134708
+      modified: 1756127165589
+      sortKey: -1756127139580
+      description: ""
+    children:
+      - url: http://127.0.0.1:8000/avl-tree-evaluation
+        name: Correct
+        meta:
+          id: req_b14940f9d0294ebcad59d5ac4d7bb700
+          created: 1756127168041
+          modified: 1756128913609
+          isPrivate: false
+          description: ""
+          sortKey: -1756127195773
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentAVLTree": {
+            		"value": 5,
+            		"balance": -1,
+            		"left": {
+            			"value": 3,
+            			"balance": 0,
+            			"left": {
+            				"value": 1,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 4,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 7,
+            			"balance": -1,
+            			"left": {
+            				"value": 6,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 9,
+            				"balance": 1,
+            				"left": {
+            					"value": 8,
+            					"balance": 0,
+            					"left": null,
+            					"right": null
+            				},
+            				"right": null
+            			}
+            		}
+            	},
+              "providedAVLTree": {
+            		"value": 5,
+            		"balance": 0,
+            		"left": {
+            			"value": 3,
+            			"balance": 0,
+            			"left": {
+            				"value": 1,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 4,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 7,
+            			"balance": -1,
+            			"left": null,
+            			"right": {
+            				"value": 9,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		}
+            	},
+            	"values": [6,8],
+            	"taskType": "AVL_TREE_INSERT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:8000/avl-tree-evaluation
+        name: All values inserted but one rebalance factor wrong
+        meta:
+          id: req_69370dd9e0bb43cc9e4134bb6d8f8eb5
+          created: 1756128801334
+          modified: 1756128807630
+          isPrivate: false
+          description: ""
+          sortKey: -1756124332863
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentAVLTree": {
+            		"value": 5,
+            		"balance": 0,
+            		"left": {
+            			"value": 3,
+            			"balance": 0,
+            			"left": {
+            				"value": 1,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 4,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 7,
+            			"balance": -1,
+            			"left": {
+            				"value": 6,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 9,
+            				"balance": 1,
+            				"left": {
+            					"value": 8,
+            					"balance": 0,
+            					"left": null,
+            					"right": null
+            				},
+            				"right": null
+            			}
+            		}
+            	},
+              "providedAVLTree": {
+            		"value": 5,
+            		"balance": 0,
+            		"left": {
+            			"value": 3,
+            			"balance": 0,
+            			"left": {
+            				"value": 1,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 4,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 7,
+            			"balance": -1,
+            			"left": null,
+            			"right": {
+            				"value": 9,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		}
+            	},
+            	"values": [6,8],
+            	"taskType": "AVL_TREE_INSERT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:8000/avl-tree-evaluation
+        name: One value not inserted
+        meta:
+          id: req_856f6ecaf73248f0930e29498372a5cf
+          created: 1756128832894
+          modified: 1756128890929
+          isPrivate: false
+          description: ""
+          sortKey: -1756122901408
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentAVLTree": {
+            		"value": 5,
+            		"balance": 0,
+            		"left": {
+            			"value": 3,
+            			"balance": 0,
+            			"left": {
+            				"value": 1,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 4,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 7,
+            			"balance": 0,
+            			"left": {
+            				"value": 6,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 9,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		}
+            	},
+              "providedAVLTree": {
+            		"value": 5,
+            		"balance": 0,
+            		"left": {
+            			"value": 3,
+            			"balance": 0,
+            			"left": {
+            				"value": 1,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 4,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 7,
+            			"balance": -1,
+            			"left": null,
+            			"right": {
+            				"value": 9,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		}
+            	},
+            	"values": [6,8],
+            	"taskType": "AVL_TREE_INSERT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:8000/avl-tree-evaluation
+        name: One value to much
+        meta:
+          id: req_6c85f007393447bea299dbd85bdefde6
+          created: 1756128918171
+          modified: 1756129275574
+          isPrivate: false
+          description: ""
+          sortKey: -1756122901383
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentAVLTree": {
+            		"value": 5,
+            		"balance": 0,
+            		"left": {
+            			"value": 3,
+            			"balance": 1,
+            			"left": {
+            				"value": 1,
+            				"balance": -1,
+            				"left": null,
+            				"right": {
+            					"value": 2,
+            					"balance": 0,
+            					"left": null,
+            					"right": null
+            				}
+            			},
+            			"right": {
+            				"value": 4,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 7,
+            			"balance": -1,
+            			"left": {
+            				"value": 6,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 9,
+            				"balance": 1,
+            				"left": {
+            					"value": 8,
+            					"balance": 0,
+            					"left": null,
+            					"right": null
+            				},
+            				"right": null
+            			}
+            		}
+            	},
+              "providedAVLTree": {
+            		"value": 5,
+            		"balance": 0,
+            		"left": {
+            			"value": 3,
+            			"balance": 0,
+            			"left": {
+            				"value": 1,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 4,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 7,
+            			"balance": -1,
+            			"left": null,
+            			"right": {
+            				"value": 9,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		}
+            	},
+            	"values": [6,8],
+            	"taskType": "AVL_TREE_INSERT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:8000/avl-tree-evaluation
+        name: Correct but added values in wrong order
+        meta:
+          id: req_842fd74ad6084fc18781fee75e830a64
+          created: 1756129268838
+          modified: 1756129330405
+          isPrivate: false
+          description: ""
+          sortKey: -1756122901358
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentAVLTree": {
+            		"value": 5,
+            		"balance": -1,
+            		"left": {
+            			"value": 3,
+            			"balance": 0,
+            			"left": {
+            				"value": 1,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 4,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 8,
+            			"balance": 1,
+            			"left": {
+            				"value": 7,
+            				"balance": 1,
+            				"left": {
+            					"value": 6,
+            					"balance": 0,
+            					"left": null,
+            					"right": null
+            				},
+            				"right": null
+            			},
+            			"right": {
+            				"value": 9,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		}
+            	},
+              "providedAVLTree": {
+            		"value": 5,
+            		"balance": 0,
+            		"left": {
+            			"value": 3,
+            			"balance": 0,
+            			"left": {
+            				"value": 1,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 4,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 7,
+            			"balance": -1,
+            			"left": null,
+            			"right": {
+            				"value": 9,
+            				"balance": 0,
+            				"left": null,
+            				"right": null
+            			}
+            		}
+            	},
+            	"values": [6,8],
+            	"taskType": "AVL_TREE_INSERT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_9a8b923c73013d41c6f84aefce1fb28966b672e9
+    created: 1756127125422
+    modified: 1756127125422
+environments:
+  name: Base Environment
+  meta:
+    id: env_9a8b923c73013d41c6f84aefce1fb28966b672e9
+    created: 1756127125422
+    modified: 1756127125422
+    isPrivate: false

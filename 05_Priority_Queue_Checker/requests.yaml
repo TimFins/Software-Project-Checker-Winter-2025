@@ -1,0 +1,1011 @@
+type: collection.insomnia.rest/5.0
+name: Priority Queue
+meta:
+  id: wrk_48cd9da8740a4e049e563be39ceebc5a
+  created: 1756126955144
+  modified: 1756126955144
+  description: ""
+collection:
+  - name: Extract Highest Priority (Max-PQ)
+    meta:
+      id: fld_837d6c404ee740109b5e45d9019604bd
+      created: 1756119979913
+      modified: 1756126987416
+      sortKey: -1756120129703
+      description: ""
+    children:
+      - url: http://127.0.0.1:5000/priority-queue-evaluation
+        name: Correct
+        meta:
+          id: req_bc54909d8df8441f8a0f9b5e9490a310
+          created: 1756119985182
+          modified: 1756120672978
+          isPrivate: false
+          description: ""
+          sortKey: -1756119996278
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentPriorityQueue": {
+            		"value": 4,
+            		"left": {
+            			"value": 3,
+            			"left": {
+            				"value": 1,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": null
+            		},
+            		"right": {
+            			"value": 2,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+              "providedPriorityQueue": {
+            		"value": 5,
+            		"left": {
+            			"value": 4,
+            			"left": {
+            				"value": 1,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 3,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 2,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+            	"priorityQueueType": "MAX",
+            	"taskType": "PRIORITY_QUEUE_EXTRACT_HIGHEST_PRIORITY"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/priority-queue-evaluation
+        name: Extracted Highest but incorrect removal process
+        meta:
+          id: req_d7f444bc4ab2451c9dbfcdf334ca12da
+          created: 1756120721110
+          modified: 1756120873559
+          isPrivate: false
+          description: ""
+          sortKey: -1756080752441
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentPriorityQueue": {
+            		"value": 4,
+            		"left": {
+            			"value": 1,
+            			"left": {
+            				"value": 3,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": null
+            		},
+            		"right": {
+            			"value": 2,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+              "providedPriorityQueue": {
+            		"value": 5,
+            		"left": {
+            			"value": 4,
+            			"left": {
+            				"value": 1,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 3,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 2,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+            	"priorityQueueType": "MAX",
+            	"taskType": "PRIORITY_QUEUE_EXTRACT_HIGHEST_PRIORITY"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/priority-queue-evaluation
+        name: Didn't extract highest
+        meta:
+          id: req_ac0f76269609474988af47e488e80aab
+          created: 1756121218065
+          modified: 1756121251350
+          isPrivate: false
+          description: ""
+          sortKey: -1756061130522.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentPriorityQueue": {
+            		"value": 5,
+            		"left": {
+            			"value": 3,
+            			"left": {
+            				"value": 1,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": null
+            		},
+            		"right": {
+            			"value": 2,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+              "providedPriorityQueue": {
+            		"value": 5,
+            		"left": {
+            			"value": 4,
+            			"left": {
+            				"value": 1,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 3,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 2,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+            	"priorityQueueType": "MAX",
+            	"taskType": "PRIORITY_QUEUE_EXTRACT_HIGHEST_PRIORITY"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Extract Highest Priority (MIN-PQ)
+    meta:
+      id: fld_fb56989e37864a3990b460fa8a1ed49d
+      created: 1756121269059
+      modified: 1756126988857
+      sortKey: -1756120129653
+      description: ""
+    children:
+      - url: http://127.0.0.1:5000/priority-queue-evaluation
+        name: Correct
+        meta:
+          id: req_0f8257f7b72143838f36fb2d5a24fba2
+          created: 1756121269059
+          modified: 1756121378878
+          isPrivate: false
+          description: ""
+          sortKey: -1756119996278
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentPriorityQueue": {
+            		"value": 2,
+            		"left": {
+            			"value": 4,
+            			"left": {
+            				"value": 5,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": null
+            		},
+            		"right": {
+            			"value": 3,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+              "providedPriorityQueue": {
+            		"value": 1,
+            		"left": {
+            			"value": 2,
+            			"left": {
+            				"value": 4,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 5,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 3,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+            	"priorityQueueType": "MIN",
+            	"taskType": "PRIORITY_QUEUE_EXTRACT_HIGHEST_PRIORITY"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/priority-queue-evaluation
+        name: Didn't extract highest
+        meta:
+          id: req_d7e6b939ca60445e879823f5bbab4c8f
+          created: 1756121269060
+          modified: 1756121406778
+          isPrivate: false
+          description: ""
+          sortKey: -1756061130522.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentPriorityQueue": {
+            		"value": 1,
+            		"left": {
+            			"value": 4,
+            			"left": {
+            				"value": 5,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": null
+            		},
+            		"right": {
+            			"value": 3,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+              "providedPriorityQueue": {
+            		"value": 1,
+            		"left": {
+            			"value": 2,
+            			"left": {
+            				"value": 4,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 5,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 3,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+            	"priorityQueueType": "MIN",
+            	"taskType": "PRIORITY_QUEUE_EXTRACT_HIGHEST_PRIORITY"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/priority-queue-evaluation
+        name: Extracted Highest but incorrect removal process
+        meta:
+          id: req_f997e99c446f46ef9337f4a4d0d32381
+          created: 1756121269060
+          modified: 1756121387118
+          isPrivate: false
+          description: ""
+          sortKey: -1756080752441
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentPriorityQueue": {
+            		"value": 2,
+            		"left": {
+            			"value": 5,
+            			"left": {
+            				"value": 4,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": null
+            		},
+            		"right": {
+            			"value": 3,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+              "providedPriorityQueue": {
+            		"value": 1,
+            		"left": {
+            			"value": 2,
+            			"left": {
+            				"value": 4,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 5,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 3,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+            	"priorityQueueType": "MIN",
+            	"taskType": "PRIORITY_QUEUE_EXTRACT_HIGHEST_PRIORITY"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Insert (Max-PQ)
+    meta:
+      id: fld_f63323560b734117ac8a49ede41dbf28
+      created: 1756121437910
+      modified: 1756126990262
+      sortKey: -1756120129628
+      description: ""
+    children:
+      - url: http://127.0.0.1:5000/priority-queue-evaluation
+        name: Correct
+        meta:
+          id: req_fcf0eaf4a4c846eb824cb743740241eb
+          created: 1756121467739
+          modified: 1756121712745
+          isPrivate: false
+          description: ""
+          sortKey: -1756121469953
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentPriorityQueue": {
+            		"value": 9,
+            		"left": {
+            			"value": 8,
+            			"left": {
+            				"value": 4,
+            				"left":  {
+            					"value": 2,
+            					"left": null,
+            					"right": null
+            				},
+            				"right": null
+            			},
+            			"right": {
+            				"value": 1,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 6,
+            			"left": {
+            				"value": 3,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 5,
+            				"left": null,
+            				"right": null
+            			}
+            		}
+            	},
+              "providedPriorityQueue": {
+            		"value": 5,
+            		"left": {
+            			"value": 4,
+            			"left": {
+            				"value": 1,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 3,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 2,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+            	"values": [9,6,8],
+            	"priorityQueueType": "MAX",
+            	"taskType": "PRIORITY_QUEUE_INSERT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/priority-queue-evaluation
+        name: Forgot to add the last value
+        meta:
+          id: req_a00ef567fb294878959ff3ab9bd33d0e
+          created: 1756121908249
+          modified: 1756121941511
+          isPrivate: false
+          description: ""
+          sortKey: -1756120733115.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentPriorityQueue": {
+            		"value": 9,
+            		"left": {
+            			"value": 4,
+            			"left": {
+            				"value": 2,
+            				"left":  null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 1,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 6,
+            			"left": {
+            				"value": 3,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 5,
+            				"left": null,
+            				"right": null
+            			}
+            		}
+            	},
+              "providedPriorityQueue": {
+            		"value": 5,
+            		"left": {
+            			"value": 4,
+            			"left": {
+            				"value": 1,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 3,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 2,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+            	"values": [9,6,8],
+            	"priorityQueueType": "MAX",
+            	"taskType": "PRIORITY_QUEUE_INSERT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/priority-queue-evaluation
+        name: Mistake during adding new values
+        meta:
+          id: req_1031761da18348608f1bda59a418db22
+          created: 1756121961707
+          modified: 1756121976591
+          isPrivate: false
+          description: ""
+          sortKey: -1756121101534.25
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentPriorityQueue": {
+            		"value": 9,
+            		"left": {
+            			"value": 8,
+            			"left": {
+            				"value": 4,
+            				"left":  {
+            					"value": 1,
+            					"left": null,
+            					"right": null
+            				},
+            				"right": null
+            			},
+            			"right": {
+            				"value": 2,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 6,
+            			"left": {
+            				"value": 3,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 5,
+            				"left": null,
+            				"right": null
+            			}
+            		}
+            	},
+              "providedPriorityQueue": {
+            		"value": 5,
+            		"left": {
+            			"value": 4,
+            			"left": {
+            				"value": 1,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 3,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 2,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+            	"values": [9,6,8],
+            	"priorityQueueType": "MAX",
+            	"taskType": "PRIORITY_QUEUE_INSERT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Insert (Min-PQ)
+    meta:
+      id: fld_7d24f7d92b7d48ffabb01a06699e52b9
+      created: 1756121992700
+      modified: 1756126992073
+      sortKey: -1756120129615.5
+      description: ""
+    children:
+      - url: http://127.0.0.1:5000/priority-queue-evaluation
+        name: Correct
+        meta:
+          id: req_b4aab6be83184442a83f41ef5aefa72d
+          created: 1756121992701
+          modified: 1756122230061
+          isPrivate: false
+          description: ""
+          sortKey: -1756121469953
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentPriorityQueue": {
+            		"value": 1,
+            		"left": {
+            			"value": 2,
+            			"left": {
+            				"value": 5,
+            				"left":  {
+            					"value": 7,
+            					"left":  null,
+            					"right": null
+            				},
+            				"right": null
+            			},
+            			"right": {
+            				"value": 8,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 3,
+            			"left": {
+            				"value": 6,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 4,
+            				"left": null,
+            				"right": null
+            			}
+            		}
+            	},
+              "providedPriorityQueue": {
+            		"value": 4,
+            		"left": {
+            			"value": 5,
+            			"left": {
+            				"value": 7,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 8,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 6,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+            	"values": [3,2,1],
+            	"priorityQueueType": "MIN",
+            	"taskType": "PRIORITY_QUEUE_INSERT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/priority-queue-evaluation
+        name: Forgot to add the last value
+        meta:
+          id: req_c6ef3eddb01b40cda4deb79e48be5e8d
+          created: 1756121992702
+          modified: 1756122332119
+          isPrivate: false
+          description: ""
+          sortKey: -1756120733115.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentPriorityQueue": {
+            		"value": 2,
+            		"left": {
+            			"value": 5,
+            			"left": {
+            				"value": 7,
+            				"left":  null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 8,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 3,
+            			"left": {
+            				"value": 6,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 4,
+            				"left": null,
+            				"right": null
+            			}
+            		}
+            	},
+              "providedPriorityQueue": {
+            		"value": 4,
+            		"left": {
+            			"value": 5,
+            			"left": {
+            				"value": 7,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 8,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 6,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+            	"values": [3,2,1],
+            	"priorityQueueType": "MIN",
+            	"taskType": "PRIORITY_QUEUE_INSERT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/priority-queue-evaluation
+        name: Mistake during adding new values
+        meta:
+          id: req_0d3feb95236e43d993492850ef846768
+          created: 1756121992703
+          modified: 1756122248782
+          isPrivate: false
+          description: ""
+          sortKey: -1756121101534.25
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentPriorityQueue": {
+            		"value": 1,
+            		"left": {
+            			"value": 2,
+            			"left": {
+            				"value": 5,
+            				"left":  {
+            					"value": 7,
+            					"left":  null,
+            					"right": null
+            				},
+            				"right": null
+            			},
+            			"right": {
+            				"value": 8,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 3,
+            			"left": {
+            				"value": 4,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 6,
+            				"left": null,
+            				"right": null
+            			}
+            		}
+            	},
+              "providedPriorityQueue": {
+            		"value": 4,
+            		"left": {
+            			"value": 5,
+            			"left": {
+            				"value": 7,
+            				"left": null,
+            				"right": null
+            			},
+            			"right": {
+            				"value": 8,
+            				"left": null,
+            				"right": null
+            			}
+            		},
+            		"right": {
+            			"value": 6,
+            			"left": null,
+            			"right": null
+            		}
+            	},
+            	"values": [3,2,1],
+            	"priorityQueueType": "MIN",
+            	"taskType": "PRIORITY_QUEUE_INSERT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_a20fd44b70d64e2d8f666669be6188c2
+    created: 1756119940402
+    modified: 1756119940402
+environments:
+  name: Base Environment
+  meta:
+    id: env_2064d4f685af4d8abed50781b4377963
+    created: 1756119940401
+    modified: 1756119940401
+    isPrivate: false
