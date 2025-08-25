@@ -47,7 +47,12 @@ def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node: AVLTreeNode
         return
     value = node.get_value()
     balance = node.get_balance()
-    sign = "+" if balance > 0 else "-" if balance < 0 else ""
+    if balance > 0:
+        sign = "+"
+    elif balance < 0:
+        sign = "-"
+    else:
+        sign = ""
     left = node.get_left_child()
     right = node.get_right_child()
     node_id = parent_id + parent_direction + str(value)
@@ -56,10 +61,10 @@ def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node: AVLTreeNode
     except:
         color: str | None = None
     if (color):
-        dot.node(node_id, f"{str(value)} ({sign}{balance})", ordering="out", fixedsize="True",
+        dot.node(node_id, f"{str(value)} ({sign}{abs(balance)})", ordering="out", fixedsize="True",
                  fillcolor=color, style="filled", fontcolor="white", fontname="Arial Bold")
     else:
-        dot.node(node_id, f"{str(value)} ({sign}{balance})", ordering="out",
+        dot.node(node_id, f"{str(value)} ({sign}{abs(balance)})", ordering="out",
                  fixedsize="True", fontname="Arial Bold")
     if parent_id:
         dot.edge(parent_id, node_id, weight="0")
