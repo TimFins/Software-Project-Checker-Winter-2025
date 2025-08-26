@@ -11,7 +11,22 @@ A checker is a microservice, packaged as a Docker container, designed to evaluat
 
 This semester, you will be developing one of these checkers for priority queue or avl tree exercises depending on the group, contributing directly to the evaluation of complex exercises in JACK. But before diving into development, we will go through the workflow and implementation step by step to ensure a solid understanding of how checkers operate.
 
-# Rough outline about when what should be done, what the project is about and other stuff
+
+
+
+TODO
+- Short intro into the project (Why are you doing this? --> JACK)
 - Step-by-step guide (Start with 00_Python_Installation, etc.)
 - Description of Milestones
 - Contact opportunities (E-Mail)
+
+
+
+
+## Milestones
+We will have two Milestones in this semester. One roughly at the halfway point and one at the end.
+
+### Milestone 1
+When?
+
+### Milestone 2
