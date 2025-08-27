@@ -68,7 +68,7 @@ Invoke-WebRequest -Uri "http://127.0.0.1:5000/priority-queue-evaluation" -Conten
 
 ### More requests when using Insomnia
 
-We recommend using Insomnia for easier testing. We have provided a `requests.yml` in this directory with more examples. We would highly advise you trying it out. Please consult `03_Insomnia_Installation` with a guide on how to get started with Insomnia.
+We recommend using Insomnia for easier testing. We have provided requests as a `.yaml` file  in the `checker` directory with more examples. We would highly advise you trying it out. Please consult `03_Insomnia_Installation` with a guide on how to get started with Insomnia.
 
 ## Evaluation functions
 
