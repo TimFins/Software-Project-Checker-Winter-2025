@@ -99,6 +99,15 @@ Before the final presentation, we want you to send us your codebase, which will 
 
 Please make sure to send us your final version, where all pending changes were applied. Please download the repo as a ZIP file and just send it to us like this. Please also do not forget to export your Insomnia test cases into a YAML file and include it into the project if you were using Insomnia for testing.
 
+While we do not require a separate code documentation document, we want you to document every important function using [Docstrings](https://peps.python.org/pep-0257/) explaining what the purpose of said function is and providing [type hints](https://peps.python.org/pep-0484/) for parameters and return values where appropriate. Here is an example:
+
+```py
+def get_missing_values(student_values: list[int], required_values: list[int]) -> set[int]:
+  """ Determine the set of values, which should be present in the student's submission but are missing instead.
+  """
+  ...
+```
+
 We want a single person of your group to send us the codebase **as a single ZIP file** per E-Mail and put all other team members into CC.
 
 
