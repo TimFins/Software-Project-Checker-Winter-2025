@@ -1,12 +1,3 @@
----
->-
-  Here is a case where the node is replaced by its inorder successor. The first
-  affected node is node **8**, since it has lost its left child. The only other
-  nodes whose balance could have changed are the ancesors of **8**.
-
-  ![image](avl_delete_concept_images/affected_nodes_case_inorder.png)
----
-
 # AVL Delete Proposal
 
 An idea on how one could implement AVL Deletion (_if there is no source for an algorithm already_).
