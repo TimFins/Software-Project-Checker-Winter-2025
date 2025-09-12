@@ -1,8 +1,9 @@
-from __future__ import annotations
-from typing import TYPE_CHECKING
-import graphviz
+try:
+    import graphviz
+    from PIL import Image
+except:
+    pass
 import base64
-from PIL import Image
 from io import BytesIO
 from itertools import permutations
 from math import inf
@@ -12,13 +13,10 @@ from tqdm import tqdm
 from multiprocessing import Pool, cpu_count
 from random import choice, sample, randint
 
-if TYPE_CHECKING:
-    from checker.datastructures.avltree._classes.AVLTreeNode import AVLTreeNode
-
 ######################### Visualization #############################################################################
 
 
-def _get_tree_height(node: AVLTreeNode, show_nil_nodes: bool):
+def _get_tree_height(node, show_nil_nodes: bool):
     left = node.left
     right = node.right
     left_height = (1 if show_nil_nodes else 0) if left is None else _get_tree_height(
@@ -28,7 +26,7 @@ def _get_tree_height(node: AVLTreeNode, show_nil_nodes: bool):
     return max(left_height, right_height) + 1
 
 
-def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node: AVLTreeNode, maxdepth, parent_id="", parent_direction="_", depth=0):
+def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node, maxdepth, parent_id="", parent_direction="_", depth=0):
     if node == "NIL":
         if depth < maxdepth:
             node_id = parent_id + parent_direction + "NIL"
@@ -85,7 +83,7 @@ def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node: AVLTreeNode
                   maxdepth, node_id, ">", depth+1)
 
 
-def _generate_avl_tree_image(title, tree: AVLTreeNode, show_nil_nodes: bool) -> str | None:
+def _generate_avl_tree_image(title, tree, show_nil_nodes: bool) -> str | None:
     """Creates an image of the tree and returns it as a base64 encoded string of a pdf.
     """
     try:
@@ -104,15 +102,21 @@ def _generate_avl_tree_image(title, tree: AVLTreeNode, show_nil_nodes: bool) -> 
 
 
 def _visualize_tree(b64_image: str | None):
-    if not b64_image:
-        return
-    img = Image.open(BytesIO(base64.b64decode(b64_image)))
-    img.show()
+    try:
+        if not b64_image:
+            return
+        img = Image.open(BytesIO(base64.b64decode(b64_image)))
+        img.show()
+    except:
+        pass
 
 
-def display_tree_image(title, tree: AVLTreeNode):
-    _visualize_tree(_generate_avl_tree_image(
-        title, tree, show_nil_nodes=False))
+def display_tree_image(title, tree):
+    try:
+        _visualize_tree(_generate_avl_tree_image(
+            title, tree, show_nil_nodes=False))
+    except:
+        pass
 
 #####################################################################################################################
 
@@ -123,16 +127,11 @@ class Node:
         self.left: Node | None = None
         self.right: Node | None = None
         self.balance = 0
-
+        # backlink to parent is necesarry for deletion but not used in insertion
         self.parent = None
 
     def __repr__(self):
         return f"Node[{self.data},{self.balance}]"
-
-
-class AVLT:
-    def __init__(self, root=None):
-        self.root: Node = root
 
 
 def insert(node, data):
@@ -201,20 +200,11 @@ def insert(node, data):
     return (node, curr_height_increased)
 
 
-def search(node, data) -> Node | None:
-    if not node or data == node.data:
-        return node  # not found or found
-    elif data < node.data:
-        return search(node.left, data)
-    else:  # data >= node.data
-        return search(node.right, data)
-
-
-def delete(avlt: AVLT, data):
-    node = avlt.root
+def delete(root: Node, data):
     # keep track of which node is the first node that requires an adjustment and how it should be adjusted
     impacted_by_delete = (None, 0)
     predecessor = None
+    node = root
     # search for node to be deleted
     while (node and data != node.data):  # not found
         predecessor = node
@@ -272,23 +262,23 @@ def delete(avlt: AVLT, data):
                         predecessor_link.parent = predecessor
             else:  # no predecessor available -> root
                 if predecessor_link:
-                    predecessor_link.balance = avlt.root.balance
+                    predecessor_link.balance = root.balance
                     predecessor_link.parent = None
-                avlt.root = predecessor_link
+                root = predecessor_link
     # first affected node and how its balance is to be shifted
     node_impacted_by_delete, balance_adjustment = impacted_by_delete
     # if there is no balance adjustment, then the deletion had no impact and
     # no further rebalancing is required
     if balance_adjustment == 0:
-        return node
+        return root
     # adjust balance value
     node_impacted_by_delete.balance += balance_adjustment
     # node impacted by delete is now fixed. All that is left to do, is fix all its ancesors
-    rebalance_after_delete(avlt, node_impacted_by_delete)
-    return node
+    root = rebalance_after_delete(root, node_impacted_by_delete)
+    return root
 
 
-def rebalance_after_delete(avlt: AVLT, node_impacted_by_delete: Node):
+def rebalance_after_delete(root: Node, node_impacted_by_delete: Node):
     node = node_impacted_by_delete
     while node is not None:
         predecessor = node.parent
@@ -375,10 +365,10 @@ def rebalance_after_delete(avlt: AVLT, node_impacted_by_delete: Node):
                     node.left.balance = 1 if node.balance == -1 else 0
                     node.right.balance = -1 if node.balance == 1 else 0
                     node.balance = 0
-            # Since the root of the subtree changed after rebalancing, 
+            # Since the root of the subtree changed after rebalancing,
             # the new root has to be properly connected to its ancestors
             if predecessor is None:  # no predecessor --> root of subtree is root of tree
-                avlt.root = node
+                root = node
                 node.parent = None
             # connect root of subtree as left child of predecessor
             elif new_root.data < predecessor.data:
@@ -388,8 +378,10 @@ def rebalance_after_delete(avlt: AVLT, node_impacted_by_delete: Node):
             else:
                 predecessor.right = node
                 node.parent = predecessor
+    return root
 
 ################# Validating result ###############################
+
 
 def create_parent_links(node: Node, backlink: Node | None = None):
     node.parent = backlink
@@ -400,11 +392,11 @@ def create_parent_links(node: Node, backlink: Node | None = None):
 
 
 def create_avl_tree(elements):
-    avlt = AVLT()
+    root = None
     for elem in elements:
-        avlt.root, _ = insert(avlt.root, elem)
-    create_parent_links(avlt.root)
-    return avlt
+        root, _ = insert(root, elem)
+    create_parent_links(root)
+    return root
 
 
 def count_nodes(node: Node) -> int:
@@ -413,13 +405,13 @@ def count_nodes(node: Node) -> int:
     return left_count + right_count + 1
 
 
-def check_node_count(avlt: AVLT, expected_node_count):
-    if not avlt.root:
+def check_node_count(root: Node, expected_node_count):
+    if not root:
         if expected_node_count != 0:
             raise Exception(
                 f"Expected node count was {expected_node_count} but there was no root")
     else:
-        real_node_count = count_nodes(avlt.root)
+        real_node_count = count_nodes(root)
         if expected_node_count != real_node_count:
             raise Exception(
                 f"Mismatch between expected node count ({expected_node_count}) and real node count ({real_node_count})")
@@ -460,12 +452,12 @@ def check_balance(node: Node) -> bool:
     return is_left_correct and is_right_correct
 
 
-def validate_tree(avlt: AVLT, expected_node_count) -> bool:
-    node_count_ok = check_node_count(avlt, expected_node_count)
+def validate_tree(root: Node, expected_node_count) -> bool:
+    node_count_ok = check_node_count(root, expected_node_count)
     if expected_node_count == 0:
         return node_count_ok
-    values_ok = check_values(avlt.root)
-    balance_ok = check_balance(avlt.root)
+    values_ok = check_values(root)
+    balance_ok = check_balance(root)
     return node_count_ok and values_ok and balance_ok
 
 ###################################################################
@@ -474,17 +466,17 @@ def validate_tree(avlt: AVLT, expected_node_count) -> bool:
 ############### Checking permutations and sampling #########################################
 
 def test_deletion_case(elements, node_to_be_deleted) -> bool:
-    avlt = create_avl_tree(elements)
-    original = deepcopy(avlt)
+    root = create_avl_tree(elements)
+    original = deepcopy(root)
     try:
-        delete(avlt, node_to_be_deleted)
+        root = delete(root, node_to_be_deleted)
     except Exception as e:
         print("Deletion Error:", str(e))
         print(traceback.format_exc())
         print(f"elements: {elements}; Deleted: {node_to_be_deleted}")
         exit()
     try:
-        return validate_tree(avlt, expected_node_count=len(elements)-1)
+        return validate_tree(root, expected_node_count=len(elements)-1)
     except Exception as e:
         print("Validation Error:", str(e))
         print(traceback.format_exc())
@@ -556,7 +548,6 @@ def test_random_samples(count, min_permutation_size, max_permutation_size):
             min_permutation_size, max_permutation_size)
         elements = sample(
             list(range(1, random_permutation_size+1)), random_permutation_size)
-        elements[randint(0, len(elements)-1)] = elements[randint(0, len(elements)-1)]
         node_to_be_deleted = choice(elements)
         combos.append((elements, node_to_be_deleted))
     with Pool(processes=cpu_count()) as pool:
@@ -568,7 +559,8 @@ def test_random_samples(count, min_permutation_size, max_permutation_size):
             )
             results.append(result)
         with tqdm(total=len(results)) as pbar:
-            pbar.set_description_str(f"Checking random samples (Multi-threaded)")
+            pbar.set_description_str(
+                f"Checking random samples (Multi-threaded)")
             for r in results:
                 r.get()
                 pbar.update(1)
@@ -578,28 +570,39 @@ def test_random_samples(count, min_permutation_size, max_permutation_size):
 
 
 if __name__ == "__main__":
+    # Simple example of usage
+    elements = [1, 2, 3]
+    # Tree is initially empty (None)
+    root = None
+    # Insert values
+    for element in elements:
+        # It is very important to write the assignment as "root, _" because insert()
+        # returns a tuple but only the first return value (the root) is of relevance
+        root, _ = insert(root, element)
+    # The insert() function does not create .parent backlinks for the nodes
+    # But the deletion algorithm requires them to be present
+    # So either modify insert() to update parent links or set them all at once after insertion
+    create_parent_links(root)
+    # Now delete the desired value
+    root = delete(root, 2)
+
     # Test all permutations of size [1, 9]
     # test_permutations_multi_threaded(9)
-    test_permutations_multi_threaded(1)
 
     # Test a specific operation. First argument is list of elements in order to be inserted into an initially empty AVL-tree using insert().
     # Second argument is the value to be deleted
     # test_specific([3, 10, 15, 25, 17, 2, 20, 6, 14, 16, 7, 24, 23, 19, 13, 8, 5, 26, 21, 12, 22, 4, 1, 18, 11, 9], 10)
 
-    # Generate 100,000 random samples where each sample has 10-50 elements and where one random element is to be deleted
-    test_random_samples(10, 10, 50)
-
-# Checked all permutations up until (including) 9
-# Permutations of size >= 10 cannot even be calculated (not enough computational resources to generate all permutations)
-# Checked many random samples with sizes [10, 50]
+    # Generate 100,000 random samples where each sample has 1-100 elements and where one random element is to be deleted
+    test_random_samples(100_000, 1, 100)
 
 
-# TODO:
-# - Simplify code?
-# - In my opinion duplicates should be illegal
-#   - If two duplicates are involved in a rebalancing, it is impossible for the rebalancing to be correct
+# NOTE:
+# - Checked all permutations up until (including) a size of 9
+# - Permutations of size >= 10 cannot even be calculated (not enough computational resources to generate all permutations)
+# - Checked many (in the millions) random samples with sizes [10, 100]
+# - The deletion code could probably be simplified further
+# - Duplicates should be illegal. Just inserting the values (1, 1, 1) violates either AVL-tree rules or duplicate rules
 #   - With two different values 1 and 2, 1 <= 2 and 2 > 1 holds
-#   - With two duplicates 1 and 1, 1 <= 1 and 1 > 1 does not hold
-#   - Values must ALWAYS be the right child of their respective duplicate parent 
-# - Remove AVLT class
-# - Add deletion algorithm itself into original file (once it is done) and keep this file for testing
+#   - With two duplicates 1 and 1, 1 <= 1 hold but 1 > 1 does not hold
+#   - Values must ALWAYS be the right child of their respective duplicate parent
