@@ -117,7 +117,7 @@ collection:
             store: true
           rebuildPath: true
       - url: http://127.0.0.1:5000/avl-tree-evaluation
-        name: All values inserted but one rebalance factor wrong
+        name: All values inserted but one rebalance value wrong
         meta:
           id: req_69370dd9e0bb43cc9e4134bb6d8f8eb5
           created: 1756128801334
