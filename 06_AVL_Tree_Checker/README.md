@@ -6,12 +6,12 @@ The goal of this example is to create a Python microservice, which provides deta
 
 The route requires the following JSON input:
 
-- The **studentAVLTree** (the students submission, **mandatory**).
+- The **studentAVLTree** (the student's submission, **mandatory**).
 - The **providedAVLTree** (initial AVL tree. May be empty, **optional**).
 - The **values** (which are to be inserted into the AVL tree, **mandatory**).
-- The **taskType** (the task type ("**AVL_TREE_INSERT**"), **mandatory**).
+- The **taskType** (the task type ("**AVL_TREE_INSERT**" or **AVL_TREE_DELETE**), **mandatory**).
 
-Inside the route's function, the task is programmatically solved using the **AVLTreeNode** class. The student's submission is then compared against the expected solution, and feedback with an appropriate score is returned.
+Inside the route's function, the task is programmatically solved using the **AVLTreeNode** class. The student's submission is then compared to the expected solution, and feedback with an appropriate score is returned.
 
 The request has the following JSON format:
 
@@ -42,7 +42,7 @@ Invoke-WebRequest -Uri "http://127.0.0.1:5000/avl-tree-evaluation" -ContentType 
 
 ### More requests when using Insomnia
 
-We recommend using Insomnia for easier testing. We have provided requests as a `.yaml` file  in the `checker` directory with more examples. We would highly advise you trying it out. Please consult `03_Insomnia_Installation` with a guide on how to get started with Insomnia.
+We recommend using Insomnia for easier testing. We have provided requests as a `.yaml` file in the `checker` directory with more examples. We would highly advise you to try it out. Please consult `03_Insomnia_Installation` for a guide on how to get started with Insomnia.
 
 ## Evaluation functions
 
@@ -76,7 +76,7 @@ from datastructures.avltree import AVLTreeNode
 
 You can find a Python file showcasing the most important functionalities of this class in `checker/example_usage_avl_tree.py`.
 
-Below is an explanation of the most relevant attributes and methods of the `AVLTreeNode` class. The source code for this class can be found in `checker/datastructures/avltree/_classes/AVLTreeNode.py` but ideally you should not have to concern yourself with that.
+Below is an explanation of the most relevant attributes and methods of the `AVLTreeNode` class. The source code for this class can be found in `checker/datastructures/avltree/_classes/AVLTreeNode.py`. You can look at the source code for further understanding but do not need to change to add anything there.
 
 Method/Attribute                       | Datatype(s)                                       | Notes
 -------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -86,13 +86,13 @@ Method/Attribute                       | Datatype(s)                            
 **right_child** _(setter, getter)_     | `AVLTreeNode` or `None`                           | Right child of the node.
 **parent** _(setter, getter)_          | `AVLTreeNode` or `None`                           | Parent of the node.
 **==**                                 | accepts `AVLTreeNode`                             | Compares whether two nodes have the same value. Subtrees are not checked.
-**is_equal_including_subtrees(other)** | accepts `AVLTreeNode`                             | Compares whether two nodes have the same value and balance value. Additionally makes sure, that the entire left and right subtrees are also equal.
+**is_equal_including_subtrees(other)** | accepts `AVLTreeNode`                             | Compares whether two nodes have the same value and balance value. Additionally, makes sure that the entire left and right subtrees are also equal.
 **preorder_traverse()**                | returns `list[AVLTreeNode]`                       | Returns the node and its descendants as a list in the order after preorder traversal.
 **inorder_traverse()**                 | returns `list[AVLTreeNode]`                       | Returns the node and its descendants as a list in the order after inorder traversal.
 **postorder_traverse()**               | returns `list[AVLTreeNode]`                       | Returns the node and its descendants as a list in the order after postorder traversal.
 **to_dict()**                          | returns `dict[str, any]`                          | Converts node and subtrees to a dictionary, just like the one in the input.
 **print_tree()**                       |                                                   | Prints formatted structure of node and subtrees to STDOUT.
-**generate_tree_image(title)**         | optionally accepts `str` or `None`, returns `str` | Generate a base 64 encoded string containing the AVL tree as PNG, which can e.g., be written to a file. Optionally one can provide a string title, which will be included at the top of the image. If it cannot be generated, an exception is raised containing the original error message. The idea behind this method is, that it can be used for debugging.
-**display_tree_image(title, img)**     | optionally accepts (`str` or `None`) and `str`    | Generates an image of the AVL tree and displays it in an image viewer. One can optionally provide a title to be shown at the top of the image. One can also provide a base64-encoded string containing the image as input. If none is provided, then one is automatically generated. If an image string is provided, the title is ignored, since the generated image will already have a title. If it cannot be generated or displayed, the user is informed. The idea is, that it can be used for debugging.
+**generate_tree_image(title)**         | optionally accepts `str` or `None`, returns `str` | Generate a base 64 encoded string containing the AVL tree as PNG, which can e.g., be written to a file. Optionally one can provide a string title, which will be included at the top of the image. If it cannot be generated, an exception is raised containing the original error message. The idea behind this method is that it can be used for debugging.
+**display_tree_image(title, img)**     | optionally accepts (`str` or `None`) and `str`    | Generates an image of the AVL tree and displays it in an image viewer. One can optionally provide a title to be shown at the top of the image. One can also provide a base64-encoded string containing the image as input. If none is provided, then one is automatically generated. If an image string is provided, the title is ignored, since the generated image will already have a title. If it cannot be generated or displayed, the user is informed. The idea is that it can be used for debugging.
 **deep_copy()**                        | returns `AVLTreeNode`                             | Creates a deep copy of the node and subtrees. The copy can be modified without affecting the original.
 AVLTreeNode.**from_dict(dict)**        | accepts `dict[str, any]`, returns `AVLTreeNode`   | Class method, which takes a dictionary as input and converts it to a `AVLTreeNode` with all its subtrees.
