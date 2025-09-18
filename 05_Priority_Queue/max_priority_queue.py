@@ -6,7 +6,7 @@
 # Copyright 2025
 
 
-""" PLEASE NOTE!
+"""PLEASE NOTE!
 
 This implementation uses an array to represent the priority queue to reduce complexity.
 This is theoretically allowed, since a heap can safely be represented as an array, while a regular binary tree cannot.

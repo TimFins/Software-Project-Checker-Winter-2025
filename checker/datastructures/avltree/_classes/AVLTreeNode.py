@@ -45,7 +45,8 @@ class AVLTreeNode:
         if not isinstance(balance, int):
             raise TypeError("Value must be a numeric type int")
         if abs(balance) > 2:
-            raise ValueError("The balancing factor must be in [-2, 2]")
+            raise ValueError(
+                "The balancing factor must be in interval [-2, 2]")
         self._balance = balance
 
     def get_left_child(self) -> Self | None:
@@ -88,7 +89,7 @@ class AVLTreeNode:
             raise TypeError(f"Parent must be a {type(self).__name__} or None")
 
     def is_equal_including_subtrees(self, other: Self) -> bool:
-        """Checks not only for the equality of just the two nodes but also all subtrees.
+        """Check not only for the equality of just the two nodes but also all subtrees.
         """
         if type(self) != type(other):
             return False
@@ -172,7 +173,9 @@ class AVLTreeNode:
         self._print_child(self._right, level, "R--> ")
 
     def generate_avl_image(self, title: str | None = None) -> str | None:
-        """Returns a Base64 encoded string containing the PNG image of the AVL tree. Optionally add a title to display on the image.
+        """Return a Base64 encoded string containing the PNG image of the AVL tree.
+
+        Optionally add a title to display on the image.
         """
         try:
             return generate_avl_tree_image(title, self, show_nil_nodes=False)
@@ -180,7 +183,9 @@ class AVLTreeNode:
             raise Exception(str(e))
 
     def display_avl_image(self, title: str | None = None, b64_encoded_tree_image: None | str = None):
-        """Display the image of the AVL tree in an image viewer. Optionally include a title to be displayed. 
+        """Display the image of the AVL tree in an image viewer.
+
+        Optionally include a title to be displayed. 
         If no image is provided, one is generated automatically. 
         If one is provided, the title argument is ignored, since it already has a title.
         """
@@ -194,7 +199,8 @@ Please consult the following error message:""", file=stderr)
         display_avl_tree_image(b64_encoded_tree_image)
 
     def deep_copy(self) -> Self:
-        """Creates and returns a hard copy of the node and all its subnodes.
+        """Create and return a hard copy of the node and all its subnodes.
+
         The copy can then be modified without changing the original.
         """
         return type(self).from_dict(self.to_dict())

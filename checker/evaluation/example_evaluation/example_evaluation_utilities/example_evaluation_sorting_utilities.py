@@ -2,7 +2,7 @@ from datastructures.example import ExampleList
 
 
 def get_ascending_violations(student_list: ExampleList) -> list[str]:
-    """Returns a list of violation messages, 
+    """Get a list of violation messages, 
     indicating that some elements are not in sorted order when they should be sorted in ascending order.
     """
     sorting_violations = []
@@ -14,7 +14,7 @@ def get_ascending_violations(student_list: ExampleList) -> list[str]:
 
 
 def get_descending_violations(student_list: ExampleList) -> list[str]:
-    """Returns a list of violation messages, 
+    """Get a list of violation messages, 
     indicating that some elements are not in sorted order when they should be sorted in descending order.
     """
     sorting_violations = []

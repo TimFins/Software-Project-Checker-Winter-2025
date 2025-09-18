@@ -13,8 +13,7 @@ def index():
 
 @app.route("/example-list-evaluation", methods=["POST"])
 def example_route():
-    """Example route showcasing how a route should be handled.
-    It takes the inputs, passes them to an evaluation function elsewhere and then answers with an example score and feedback.
+    """Example route showcasing how a route should be handled. Take the inputs, pass them to an evaluation function elsewhere and then answer with an example score and feedback.
     """
     print("A request has arrived!")
     data = request.get_json()

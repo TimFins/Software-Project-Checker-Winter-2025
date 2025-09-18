@@ -4,7 +4,7 @@ from .list_evaluation_descending.example_list_descending_sorting_evaluation impo
 
 
 def evaluate_list_sorting_task(request: dict) -> tuple[int, str, list]:
-    """Generic example list evaluation function. Takes in the full request and delegates it to the respective evaluation pipeline.
+    """Generic example list evaluation function. Take in the full request and delegate it to the respective evaluation pipeline.
 
     Score is rounded to the nearest integer and clamped [0, 100].
     Leading and trailing whitespaces are stripped from the feedback.
@@ -25,7 +25,7 @@ def evaluate_list_sorting_task(request: dict) -> tuple[int, str, list]:
 
 
 def evaluate_ascending_sorting_task(request: dict) -> tuple[int, str, list]:
-    """Extract the important components from the request and delegate the actual grading.
+    """Extract the important components from the request and delegate the actual grading fort sorting in ascending order.
     """
     try:
         student_list = ExampleList(request["studentList"])
@@ -43,7 +43,7 @@ def evaluate_ascending_sorting_task(request: dict) -> tuple[int, str, list]:
 
 
 def evaluate_descending_sorting_task(request: dict) -> tuple[int, str, list]:
-    """Extract the important components from the request and delegate the actual grading.
+    """Extract the important components from the request and delegate the actual grading fort sorting in descending order.
     """
     try:
         student_list = ExampleList(request["studentList"])

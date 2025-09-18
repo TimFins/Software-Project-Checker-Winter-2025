@@ -75,7 +75,7 @@ class PriorityQueueNode:
             raise TypeError(f"Parent must be a {type(self).__name__} or None")
 
     def is_equal_including_subtrees(self, other: Self) -> bool:
-        """Checks not only for the equality of just the two nodes but also all subtrees.
+        """Check not only for the equality of just the two nodes but also all subtrees.
         """
         if type(self) != type(other):
             return False
@@ -157,7 +157,9 @@ class PriorityQueueNode:
         self._print_child(self._right, level, "R--> ")
 
     def generate_priority_queue_image(self, title: str | None = None) -> str | None:
-        """Returns a Base64 encoded string containing the PNG image of the priority queue. Optionally add a title to display on the image.
+        """Return a Base64 encoded string containing the PNG image of the priority queue.
+
+        Optionally add a title to display on the image.
         """
         try:
             return generate_priority_queue_image(title, self, show_nil_nodes=False)
@@ -165,7 +167,9 @@ class PriorityQueueNode:
             raise Exception(str(e))
 
     def display_priority_queue_image(self, title: str | None = None, b64_encoded_tree_image: None | str = None):
-        """Display the image of the priority queue in an image viewer. Optionally include a title to be displayed. 
+        """Display the image of the priority queue in an image viewer.
+
+        Optionally include a title to be displayed. 
         If no image is provided, one is generated automatically. 
         If one is provided, the title argument is ignored, since it already has a title.
         """
@@ -180,7 +184,8 @@ Please consult the following error message:""", file=stderr)
         display_priority_queue_image(b64_encoded_tree_image)
 
     def deep_copy(self) -> Self:
-        """Creates and returns a hard copy of the node and all its subnodes.
+        """Create and return a hard copy of the node and all its subnodes.
+
         The copy can then be modified without changing the original.
         """
         return type(self).from_dict(self.to_dict())

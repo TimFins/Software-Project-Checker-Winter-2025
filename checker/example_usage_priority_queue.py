@@ -1,8 +1,8 @@
 """Example usage of the PriorityQueueNode class.
 This file guides you through the most important methods of the PriorityQueueNode class. Including how to create it, modify it and more.
 
-To avoid the output from being overwhelming, after each console output you have to confirm by pressing the 'Enter' key before new output is shown.
-For that purpose the '_wait_for_user_confirmation()' function is used here. Please ignore it.
+To avoid the output from being overwhelming, after each console output you must confirm by pressing the 'Enter' key before new output is shown.
+For that purpose, the '_wait_for_user_confirmation()' function is used here. Please ignore it.
 """
 
 # Import the PriorityQueueNode class
@@ -44,7 +44,7 @@ _wait_for_user_confirmation("1.1")
 # 2. Modifying the priority queue #
 ###################################
 
-# We are just going to assume, that we have a min-priority queue (parent must be smaller or equal to its children)
+# We are just going to assume that we have a min-priority queue (parent must be smaller or equal to its children)
 # If you want to add a node to the tree, create a new node and add it as a child of the root.
 new_left_child = PriorityQueueNode(value=10)
 root.set_left_child(new_left_child)
@@ -84,7 +84,7 @@ _wait_for_user_confirmation("3.1")
 
 print("3.2 root == root_copy =", root == root_copy)
 # The result is: True. While the right child of the root was modified, the root itself was not changed.
-# So the roots are still equal.
+# So, the roots are still equal.
 _wait_for_user_confirmation("3.2")
 
 # If you want to check whether two trees are equal (both nodes have the same value and all the children are the same),
@@ -99,8 +99,8 @@ _wait_for_user_confirmation("3.3")
 # 4. Traversal #
 ################
 
-# You can traverse the tree manually by calling 'get_left_child()', 'get_right_child()' or 'get_parent()',
-# but you can also traverse it in one the three traversal orders, which are methods returning a list of all nodes in the given order.
+# You can traverse the tree manually by calling 'get_left_child()', 'get_right_child()' or 'get_parent()'.
+# But you can also traverse it in one of the three traversal orders, which are methods returning a list of all nodes in the given order.
 # The orders are preorder, inorder and postorder.
 nodes_in_preorder = root.preorder_traverse()
 nodes_in_inorder = root.inorder_traverse()

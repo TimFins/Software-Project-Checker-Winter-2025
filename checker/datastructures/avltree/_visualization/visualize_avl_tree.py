@@ -77,7 +77,7 @@ def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node: AVLTreeNode
 
 
 def generate_avl_tree_image(title, tree: AVLTreeNode, show_nil_nodes: bool) -> str | None:
-    """Creates an image of the tree and returns it as a base64 encoded string of a pdf.
+    """Create an image of the tree and return it as a base64 encoded string of a png.
     """
     try:
         dot: graphviz.Digraph = graphviz.Digraph()
@@ -95,7 +95,7 @@ def generate_avl_tree_image(title, tree: AVLTreeNode, show_nil_nodes: bool) -> s
 
 
 def display_avl_tree_image(b64_image: str | None):
-    """Displays the provided base 64 encoded image in an image viewer.
+    """Display the provided base 64 encoded image in an image viewer.
     """
     if not b64_image:
         return

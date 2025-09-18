@@ -2,7 +2,7 @@ from datastructures.avltree import AVLTreeNode
 
 
 def evaluate_avl_tree_task(request: dict) -> tuple[int, str, dict]:
-    """AVL tree evaluation function. Takes in the full request and delegates it to the respective evaluation pipeline.
+    """AVL tree evaluation function. Take in the full request and delegates it to the respective evaluation pipeline.
 
     Score is rounded to the nearest integer and clamped [0, 100].
     Leading and trailing whitespaces are stripped from the feedback.
@@ -23,8 +23,9 @@ def evaluate_avl_tree_task(request: dict) -> tuple[int, str, dict]:
 
 
 def evaluate_avl_tree_insert_task(request: dict) -> tuple[int, str, dict]:
-    """ A students task is evaluated where the student was asked to insert the values into the provided avl tree.
-    The student did so and ended up with the student avl tree which now needs to be evaluated.
+    """Evaluate a student's task, where the student was asked to insert the values into the provided AVL tree.
+
+    The student did so and ended up with the student AVL tree which now needs to be evaluated.
     """
     try:
         student_avl_tree = AVLTreeNode.from_dict(request["studentAVLTree"])
@@ -50,24 +51,25 @@ def evaluate_avl_tree_insert_task(request: dict) -> tuple[int, str, dict]:
     print("Values:")
     print(values)
 
-    """ Here, after parsing the JSON into the according class structures, the evaluation should take place.
-    Therefore, you should first create a solution which is used to compare it against the student avl tree.
-    After creating the solution, in different functions comparisons should take place which determine which
-    exact mistakes were made and based on that generate the feedback and calculate a score.
+    """Here, after parsing the JSON into the according class structures, the evaluation should take place.
+    Therefore, you should first create the solution which is used to compare it to the student AVL tree.
+    After creating the solution, comparisons, cleanly separated into different functions,
+    should determine the exact mistakes generate feedback as well as a score based on that.
     """
 
-    score, feedback, solution = 100, "The feedback isn't implemented yet for avl tree insert.", {
+    score, feedback, solution = 100, "The feedback isn't implemented yet for AVL tree insert.", {
         "error": "The solution isn't implemented yet."}
     return score, feedback, solution
 
 
 def evaluate_avl_tree_delete_task(request: dict) -> tuple[int, str, dict]:
-    """ A students task is evaluated where the student was asked to delete the values from the provided avl tree.
-    The student did so and ended up with the student avl tree which now needs to be evaluated.
+    """Evaluate a student's task, where the student was asked to delete the values from the provided AVL tree.
+
+    The student did so and ended up with the student AVL tree, which now needs to be evaluated.
     """
     try:
         student_avl_tree = AVLTreeNode.from_dict(request["studentAVLTree"])
-        print("StudenAVLTree:")
+        print("StudentAVLTree:")
         if student_avl_tree:
             student_avl_tree.print_tree()
         else:
@@ -89,12 +91,12 @@ def evaluate_avl_tree_delete_task(request: dict) -> tuple[int, str, dict]:
     print("Values:")
     print(values)
 
-    """ Here, after parsing the JSON into the according class structures, the evaluation should take place.
-    Therefore, you should first create a solution which is used to compare it against the student avl tree.
-    After creating the solution, in different functions comparisons should take place which determine which
-    exact mistakes were made and based on that generate the feedback and calculate a score.
+    """Here, after parsing the JSON into the according class structures, the evaluation should take place.
+    Therefore, you should first create the solution which is used to compare it to the student AVL tree.
+    After creating the solution, comparisons, cleanly separated into different functions,
+    should determine the exact mistakes generate feedback as well as a score based on that.
     """
 
-    score, feedback, solution = 100, "The feedback isn't implemented yet for avl tree delete.", {
+    score, feedback, solution = 100, "The feedback isn't implemented yet for AVL tree delete.", {
         "error": "The solution isn't implemented yet."}
     return score, feedback, solution

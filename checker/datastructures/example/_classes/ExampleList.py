@@ -26,7 +26,7 @@ class ExampleList:
         return self._data
 
     def sorted(self, sort_ascending: bool = True) -> ExampleList:
-        """Returns a new ExampleList instance with the list being in sorted order. 
+        """Return a new ExampleList instance with the list being in sorted order. 
 
         Additional flag determines whether to sort in ascending or descending order.
         """

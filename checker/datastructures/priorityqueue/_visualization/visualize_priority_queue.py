@@ -70,7 +70,7 @@ def _draw_subtree(dot: graphviz.Digraph, show_nil_nodes: bool, node: PriorityQue
 
 
 def generate_priority_queue_image(title, tree: PriorityQueueNode, show_nil_nodes: bool) -> str | None:
-    """Creates an image of the tree and returns it as a base64 encoded string of a pdf.
+    """Create an image of the tree and returns it as a base64 encoded string of a png.
     """
     try:
         dot: graphviz.Digraph = graphviz.Digraph()
@@ -88,7 +88,7 @@ def generate_priority_queue_image(title, tree: PriorityQueueNode, show_nil_nodes
 
 
 def display_priority_queue_image(b64_image: str | None):
-    """Displays the provided base 64 encoded image in an image viewer.
+    """Display the provided base 64 encoded image in an image viewer.
     """
     if not b64_image:
         return
