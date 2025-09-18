@@ -97,9 +97,9 @@ While we do not require a separate code documentation document, we want you to d
 
 ```python
 def get_missing_values(student_values: list[int], required_values: list[int]) -> set[int]:
-  """Determine the set of values, which should be present in the student's submission but are missing instead.
-  """
-  ...
+    """Determine the set of values, which should be present in the student's submission but are missing instead.
+    """
+    ...
 ```
 
 We want a single person of your group to send us the codebase **as a single ZIP file** per E-Mail at the end of the project and put all other team members into CC.
