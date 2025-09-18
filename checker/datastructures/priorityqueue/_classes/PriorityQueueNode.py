@@ -75,6 +75,8 @@ class PriorityQueueNode:
             raise TypeError(f"Parent must be a {type(self).__name__} or None")
 
     def is_equal_including_subtrees(self, other: Self) -> bool:
+        """Checks not only for the equality of just the two nodes but also all subtrees.
+        """
         if type(self) != type(other):
             return False
         if self != other:
@@ -98,6 +100,8 @@ class PriorityQueueNode:
         return left_equal and right_equal
 
     def preorder_traverse(self) -> list[Self]:
+        """Get the list of nodes in preorder.
+        """
         traversal = []
 
         def _preorder_traverse(node: Self):
@@ -109,6 +113,8 @@ class PriorityQueueNode:
         return traversal
 
     def inorder_traverse(self) -> list[Self]:
+        """Get the list of nodes in inorder.
+        """
         traversal = []
 
         def _inorder_traverse(node: Self):
@@ -120,6 +126,8 @@ class PriorityQueueNode:
         return traversal
 
     def postorder_traverse(self) -> list[Self]:
+        """Get the list of nodes in postorder.
+        """
         traversal = []
 
         def _postorder_traverse(node: Self):
@@ -163,7 +171,8 @@ class PriorityQueueNode:
         """
         try:
             if b64_encoded_tree_image is None:
-                b64_encoded_tree_image = self.generate_priority_queue_image(title)
+                b64_encoded_tree_image = self.generate_priority_queue_image(
+                    title)
         except Exception as e:
             print("""The image could not be shown. In case the error mentions the Graphviz executable, then please make sure that you have installed Graphviz and configured it correctly on your system. 
 Please consult the following error message:""", file=stderr)
@@ -178,6 +187,8 @@ Please consult the following error message:""", file=stderr)
 
     @classmethod
     def from_dict(cls, data: dict[str, any]) -> PriorityQueueNode | None:
+        """Create a PriorityQueueNode instance from a dictionary.
+        """
         if data is None or data == {}:
             return None
         if not isinstance(data, dict) or "value" not in data.keys():

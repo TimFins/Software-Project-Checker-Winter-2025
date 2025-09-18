@@ -95,6 +95,8 @@ def generate_avl_tree_image(title, tree: AVLTreeNode, show_nil_nodes: bool) -> s
 
 
 def display_avl_tree_image(b64_image: str | None):
+    """Displays the provided base 64 encoded image in an image viewer.
+    """
     if not b64_image:
         return
     img = Image.open(BytesIO(base64.b64decode(b64_image)))

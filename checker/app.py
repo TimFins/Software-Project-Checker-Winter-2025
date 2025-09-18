@@ -6,6 +6,8 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def index():
+    """In case someone just tries to open this link in the browser, inform the user how the webserver should be used instead.
+    """
     return """<h1>Connection Established</h1><p>The HTTP Server is running. Please note, that in order to actually use this service, you have to send POST requests to the implemented routes.</p><p>This page serves no functional purpose.</p>"""
 
 
@@ -28,6 +30,8 @@ def example_route():
 
 @app.route("/avl-tree-evaluation", methods=["POST"])
 def evaluate_avl_tree_route():
+    """Evaluate an AVL tree exercise and respond with results.
+    """
     print("A request has arrived!")
     data = request.get_json()
 
@@ -42,6 +46,8 @@ def evaluate_avl_tree_route():
 
 @app.route("/priority-queue-evaluation", methods=["POST"])
 def evaluate_priority_queue_route():
+    """Evaluate a priority queue exercise and respond with results.
+    """
     print("A request has arrived!")
     data = request.get_json()
 

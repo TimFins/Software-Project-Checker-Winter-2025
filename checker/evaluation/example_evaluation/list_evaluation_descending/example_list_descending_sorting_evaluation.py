@@ -4,6 +4,8 @@ from ..example_evaluation_utilities.example_evaluation_values_utilities import *
 
 
 def example_list_descending_sorting_evaluation(student_list: ExampleList, provided_list: ExampleList) -> tuple[int, str, ExampleList]:
+    """Evaluate a sort in descending order exercise, returning score, feedback and solution.
+    """
     solution = provided_list.sorted(sort_ascending=False)
 
     # 1. Just one element to be sorted so the solution is trivial.

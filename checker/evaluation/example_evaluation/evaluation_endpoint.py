@@ -3,7 +3,7 @@ from .list_evaluation_ascending.example_list_ascending_sorting_evaluation import
 from .list_evaluation_descending.example_list_descending_sorting_evaluation import example_list_descending_sorting_evaluation
 
 
-def evaluate_list_sorting_task(request: dict) -> tuple[int, str, dict]:
+def evaluate_list_sorting_task(request: dict) -> tuple[int, str, list]:
     """Generic example list evaluation function. Takes in the full request and delegates it to the respective evaluation pipeline.
 
     Score is rounded to the nearest integer and clamped [0, 100].
@@ -11,7 +11,7 @@ def evaluate_list_sorting_task(request: dict) -> tuple[int, str, dict]:
     """
     task_type = request["taskType"]
     def evaluator_function(
-        _): return 0, "Evaluation for this task is not implemented", "{}"
+        _): return 0, "Evaluation for this task is not implemented", []
     match task_type:
         case "EXAMPLE_LIST_SORT_ASCENDING":
             evaluator_function = evaluate_ascending_sorting_task
@@ -24,7 +24,9 @@ def evaluate_list_sorting_task(request: dict) -> tuple[int, str, dict]:
     return score, feedback, solution
 
 
-def evaluate_ascending_sorting_task(request: dict):
+def evaluate_ascending_sorting_task(request: dict) -> tuple[int, str, list]:
+    """Extract the important components from the request and delegate the actual grading.
+    """
     try:
         student_list = ExampleList(request["studentList"])
     except:
@@ -37,10 +39,12 @@ def evaluate_ascending_sorting_task(request: dict):
 
     score, feedback, solution = example_list_ascending_sorting_evaluation(
         student_list, provided_list)
-    return score, feedback, solution.get_data() if solution else '{}'
+    return score, feedback, solution.get_data() if solution else []
 
 
-def evaluate_descending_sorting_task(request: dict):
+def evaluate_descending_sorting_task(request: dict) -> tuple[int, str, list]:
+    """Extract the important components from the request and delegate the actual grading.
+    """
     try:
         student_list = ExampleList(request["studentList"])
     except:
@@ -53,4 +57,4 @@ def evaluate_descending_sorting_task(request: dict):
 
     score, feedback, solution = example_list_descending_sorting_evaluation(
         student_list, provided_list)
-    return score, feedback, solution.get_data() if solution else '{}'
+    return score, feedback, solution.get_data() if solution else []

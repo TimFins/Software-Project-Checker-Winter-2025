@@ -12,6 +12,10 @@ import json
 
 
 def _wait_for_user_confirmation(output_text):
+    """This function is just used to prevent clutter from having too many images open all at once.
+
+    This function serves no further purpose and should be ignored.
+    """
     input(
         f"Please press 'Enter' to continue to continue past output {output_text}")
 

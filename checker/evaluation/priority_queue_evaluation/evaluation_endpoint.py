@@ -50,7 +50,7 @@ def evaluate_priority_queue_extract_highest_priority_task(request: dict):
         raise ValueError("ProvidedPriorityQueue has an incorrect format.")
 
     print("Is Max Priority Queue:")
-    print(isMaxPriorityQueue(request))
+    print(is_max_priority_queue(request))
 
     """ Here, after parsing the JSON into the according class structures, the evaluation should take place.
     Therefore, you should first create a solution which is used to compare it against the student priority queue.
@@ -58,7 +58,7 @@ def evaluate_priority_queue_extract_highest_priority_task(request: dict):
     exact mistakes were made and based on that generate the feedback and calculate a score.
     """
 
-    score, feedback, solution = 100, f"The feedback isn't implemented yet for priority queue (extract highest priority): {'MAX' if isMaxPriorityQueue(request) else 'MIN'}", "The solution isn't implemented yet."
+    score, feedback, solution = 100, f"The feedback isn't implemented yet for priority queue (extract highest priority): {'MAX' if is_max_priority_queue(request) else 'MIN'}", "The solution isn't implemented yet."
     return score, feedback, solution
 
 
@@ -89,7 +89,7 @@ def evaluate_priority_queue_insert_task(request: dict):
         raise ValueError("ProvidedPriorityQueue has an incorrect format.")
 
     print("Is Max Priority Queue:")
-    print(isMaxPriorityQueue(request))
+    print(is_max_priority_queue(request))
 
     values = request.get("values")
     print("Values:")
@@ -101,11 +101,14 @@ def evaluate_priority_queue_insert_task(request: dict):
     exact mistakes were made and based on that generate the feedback and calculate a score.
     """
 
-    score, feedback, solution = 100, f"The feedback isn't implemented yet for priority queue (insert): {'max' if isMaxPriorityQueue(request) else 'min'}", "The solution isn't implemented yet."
+    score, feedback, solution = 100, f"The feedback isn't implemented yet for priority queue (insert): {'max' if is_max_priority_queue(request) else 'min'}", "The solution isn't implemented yet."
     return score, feedback, solution
 
 
-def isMaxPriorityQueue(request: dict) -> bool:
+def is_max_priority_queue(request: dict) -> bool:
+    """Determines whether the request demands the priority queue to be interpreted
+    as a min-priority queue or max-priority queue.
+    """
     max_priority_queue_type = request.get("priorityQueueType")
 
     if max_priority_queue_type == "MAX":

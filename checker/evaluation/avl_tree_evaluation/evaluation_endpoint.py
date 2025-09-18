@@ -22,7 +22,7 @@ def evaluate_avl_tree_task(request: dict) -> tuple[int, str, dict]:
     return score, feedback, solution
 
 
-def evaluate_avl_tree_insert_task(request: dict):
+def evaluate_avl_tree_insert_task(request: dict) -> tuple[int, str, dict]:
     """ A students task is evaluated where the student was asked to insert the values into the provided avl tree.
     The student did so and ended up with the student avl tree which now needs to be evaluated.
     """
@@ -56,11 +56,12 @@ def evaluate_avl_tree_insert_task(request: dict):
     exact mistakes were made and based on that generate the feedback and calculate a score.
     """
 
-    score, feedback, solution = 100, "The feedback isn't implemented yet for avl tree insert.", "The solution isn't implemented yet."
+    score, feedback, solution = 100, "The feedback isn't implemented yet for avl tree insert.", {
+        "error": "The solution isn't implemented yet."}
     return score, feedback, solution
 
 
-def evaluate_avl_tree_delete_task(request: dict):
+def evaluate_avl_tree_delete_task(request: dict) -> tuple[int, str, dict]:
     """ A students task is evaluated where the student was asked to delete the values from the provided avl tree.
     The student did so and ended up with the student avl tree which now needs to be evaluated.
     """
@@ -94,5 +95,6 @@ def evaluate_avl_tree_delete_task(request: dict):
     exact mistakes were made and based on that generate the feedback and calculate a score.
     """
 
-    score, feedback, solution = 100, "The feedback isn't implemented yet for avl tree delete.", "The solution isn't implemented yet."
+    score, feedback, solution = 100, "The feedback isn't implemented yet for avl tree delete.", {
+        "error": "The solution isn't implemented yet."}
     return score, feedback, solution

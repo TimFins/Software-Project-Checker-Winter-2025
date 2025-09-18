@@ -88,6 +88,8 @@ class AVLTreeNode:
             raise TypeError(f"Parent must be a {type(self).__name__} or None")
 
     def is_equal_including_subtrees(self, other: Self) -> bool:
+        """Checks not only for the equality of just the two nodes but also all subtrees.
+        """
         if type(self) != type(other):
             return False
         if self != other:
@@ -111,6 +113,8 @@ class AVLTreeNode:
         return left_equal and right_equal
 
     def preorder_traverse(self) -> list[Self]:
+        """Get the list of nodes in preorder.
+        """
         traversal = []
 
         def _preorder_traverse(node: Self):
@@ -122,6 +126,8 @@ class AVLTreeNode:
         return traversal
 
     def inorder_traverse(self) -> list[Self]:
+        """Get the list of nodes in inorder.
+        """
         traversal = []
 
         def _inorder_traverse(node: Self):
@@ -133,6 +139,8 @@ class AVLTreeNode:
         return traversal
 
     def postorder_traverse(self) -> list[Self]:
+        """Get the list of nodes in postorder.
+        """
         traversal = []
 
         def _postorder_traverse(node: Self):
@@ -193,6 +201,8 @@ Please consult the following error message:""", file=stderr)
 
     @classmethod
     def from_dict(cls, data: dict[str, any]) -> AVLTreeNode | None:
+        """Create an AVLTreeNode instance from a dictionary.
+        """
         if data is None or data == {}:
             return None
         if not isinstance(data, dict) or "value" not in data.keys():
