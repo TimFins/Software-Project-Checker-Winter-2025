@@ -1,4 +1,4 @@
-# Testing the binary search tree checker
+# Testing the binary tree checkers
 By now, you have learned what an evaluation service is and how it is built using a basic example. In the next step, we will test an evaluation service in action by solving exercises related to binary search trees and red-black trees, which are evaluated by a checker.
 
 ## Testing the exercises
