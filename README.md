@@ -46,17 +46,12 @@ The first milestone will consist of a presentation of roughly **10 minutes per p
 In said presentation we want to see the general concepts you have thought of for this project. Here are just some examples of what we mean by concepts:
 
 - How do you adjust the score?
-
-  - Do you calculate the correctness percentage and give points according to that?
-  - Do you start with a score of 100 and deduct points for each mistake?
-  - Maybe even another approach?
-
+    - Do you calculate the correctness percentage and give points according to that?
+    - Do you start with a score of 100 and deduct points for each mistake?
+    - Maybe even another approach?
 - Weighting of tasks/errors?
-
-  - Are some errors treated more harshly or more leniently?
-
+    - Are some errors treated more harshly or more leniently?
 - Do you consider follow-up errors in some way?
-
 - Do you define a cut-off point, where you say, that the student's submission is so convoluted, that it would not be beneficial for the student to show detailed feedback?
 
 We would also like you to highlight popular mistakes that students could make and how you want to address them.
@@ -107,7 +102,6 @@ We want a single person of your group to send us the codebase **as a single ZIP 
 ## Contact Opportunities
 
 If you have any questions, then please go ahead and send us an E-Mail. Here are our E-Mail addresses:
-
 - Tim Finmans: tim.finmans@stud.fra-uas.de
 - Edward Späth: edward.spaeth@stud.fra-uas.de
 
