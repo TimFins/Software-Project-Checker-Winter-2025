@@ -64,7 +64,7 @@ We just want to make sure, that you are on the right path and can keep on workin
 
 ### Milestone 2 Contents
 
-The second milstone will be the final presentation, which takes place at the very last appointment of our project, which should be **roughly in the middle of December**.
+The second milstone will be the final presentation, which takes place at the very last appointment of our project, which should be in the week **08.12.2025 - 14.12.2025**.
 
 There we want to see your final work product.
 So please present anything, which you may find useful for us or the other project participants to know.
