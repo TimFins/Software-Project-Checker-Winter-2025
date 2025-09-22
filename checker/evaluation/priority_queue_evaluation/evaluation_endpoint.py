@@ -50,6 +50,16 @@ def evaluate_priority_queue_extract_highest_priority_task(request: dict):
             print("ProvidedPriorityQueue is empty.")
     except:
         raise ValueError("ProvidedPriorityQueue has an incorrect format.")
+    
+    try:
+        print("ExtractCount:")
+        extract_count = request["extractCount"]
+        if extract_count:
+            print(extract_count)
+        else:
+            print("ExtractCount isn't present.")
+    except:
+        raise ValueError("The ExtractCount isn't present in the request.")
 
     print("Is Max Priority Queue:")
     print(is_max_priority_queue(request))

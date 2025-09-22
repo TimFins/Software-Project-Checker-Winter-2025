@@ -17,8 +17,7 @@ It provides a simple interface for sending requests to your Flask server and vie
 ---
 
 ## Installing Insomnia
-You can download Insomnia for your operating system from the official website:  
-[https://insomnia.rest/download](https://insomnia.rest/download)
+You can download [Insomnia](https://insomnia.rest/download) for your operating system from the official website.
 
 Once installed, open it and create a new **Collection** to organize your requests for the Flask exercises.
 
