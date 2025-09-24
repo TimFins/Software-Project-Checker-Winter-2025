@@ -1,0 +1,409 @@
+type: collection.insomnia.rest/5.0
+name: Example List Sort
+meta:
+  id: wrk_0f9f6ad849a14e4c8774238b9bf1c7c4
+  created: 1756040801080
+  modified: 1756040801080
+  description: ""
+collection:
+  - name: Sort Ascending
+    meta:
+      id: fld_be77b62473b7496b91483f59ad074efa
+      created: 1756041504458
+      modified: 1756041516168
+      sortKey: -1756041504458
+      description: ""
+    children:
+      - url: http://127.0.0.1:5000/example-list-evaluation
+        name: Correct
+        meta:
+          id: req_3d8398f56829471e8750000cd365006b
+          created: 1756041508604
+          modified: 1756041577948
+          isPrivate: false
+          description: ""
+          sortKey: -1756041508604
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "providedList": [1, 3, 2, 7, 9, 0],
+                "studentList": [0, 1, 2, 3, 7, 9],
+                "taskType": "EXAMPLE_LIST_SORT_ASCENDING"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/example-list-evaluation
+        name: One value wrongly sorted
+        meta:
+          id: req_41b6d52d91354da49092eab2dde1400f
+          created: 1756041594963
+          modified: 1756041605849
+          isPrivate: false
+          description: ""
+          sortKey: -1755179884028
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "providedList": [1, 3, 2, 7, 9, 0],
+                "studentList": [0, 1, 3, 2, 7, 9],
+                "taskType": "EXAMPLE_LIST_SORT_ASCENDING"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/example-list-evaluation
+        name: Two values wrongly sorted
+        meta:
+          id: req_b15244ed57214a028970c2f6d05e8971
+          created: 1756041620265
+          modified: 1756041655437
+          isPrivate: false
+          description: ""
+          sortKey: -1754749071740
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "providedList": [1, 3, 2, 7, 9, 0],
+                "studentList": [1, 0, 3, 2, 7, 9],
+                "taskType": "EXAMPLE_LIST_SORT_ASCENDING"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/example-list-evaluation
+        name: Correctly sorted but one value missing
+        meta:
+          id: req_ad0ea7f85ea7410fadb08d4a4995bf96
+          created: 1756041698396
+          modified: 1756041708450
+          isPrivate: false
+          description: ""
+          sortKey: -1754749071640
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "providedList": [1, 3, 2, 7, 9, 0],
+                "studentList": [0, 2, 3, 7, 9],
+                "taskType": "EXAMPLE_LIST_SORT_ASCENDING"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/example-list-evaluation
+        name: Correctly sorted but one value to much
+        meta:
+          id: req_3e3cc56c9d564f7d814a9f1eee89827d
+          created: 1756041721023
+          modified: 1756041919826
+          isPrivate: false
+          description: ""
+          sortKey: -1754533665546
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "providedList": [1, 3, 2, 7, 9, 0],
+                "studentList": [0, 1, 2, 3, 4, 7, 9],
+                "taskType": "EXAMPLE_LIST_SORT_ASCENDING"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/example-list-evaluation
+        name: Sorted descending
+        meta:
+          id: req_ee680665a0b845adaed2dd5ea3c2a79b
+          created: 1756041789139
+          modified: 1756041803237
+          isPrivate: false
+          description: ""
+          sortKey: -1755610696316
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "providedList": [1, 3, 2, 7, 9, 0],
+                "studentList": [9, 7, 3, 2, 1, 0],
+                "taskType": "EXAMPLE_LIST_SORT_ASCENDING"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Sort Descending
+    meta:
+      id: fld_ab2c691d0dd64edd8d472a0b7c224045
+      created: 1756041748846
+      modified: 1756041748846
+      sortKey: -1754869710686
+      description: ""
+    children:
+      - url: http://127.0.0.1:5000/example-list-evaluation
+        name: Correct
+        meta:
+          id: req_96b7f6d60c344ef1b27ec7427234bcd6
+          created: 1756041748848
+          modified: 1756041855001
+          isPrivate: false
+          description: ""
+          sortKey: -1756041508604
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "providedList": [1, 3, 2, 7, 9, 0],
+                "studentList": [9, 7, 3, 2, 1, 0],
+                "taskType": "EXAMPLE_LIST_SORT_DESCENDING"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/example-list-evaluation
+        name: One value wrongly sorted
+        meta:
+          id: req_110c01644ecf44e29ec52aa19cf08dbf
+          created: 1756041748849
+          modified: 1756041866043
+          isPrivate: false
+          description: ""
+          sortKey: -1755179884028
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "providedList": [1, 3, 2, 7, 9, 0],
+                "studentList": [9, 3, 7, 2, 1, 0],
+                "taskType": "EXAMPLE_LIST_SORT_DESCENDING"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/example-list-evaluation
+        name: Two values wrongly sorted
+        meta:
+          id: req_b9a9c3e0916e4f5189ba8ad421c5dac4
+          created: 1756041748849
+          modified: 1756041878267
+          isPrivate: false
+          description: ""
+          sortKey: -1754749071740
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "providedList": [1, 3, 2, 7, 9, 0],
+                "studentList": [7, 9, 3, 1, 2, 0],
+                "taskType": "EXAMPLE_LIST_SORT_DESCENDING"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/example-list-evaluation
+        name: Correctly sorted but one value to much
+        meta:
+          id: req_128ccbf5dbf14effa1cdec1cfe4a54e1
+          created: 1756041748850
+          modified: 1756041905015
+          isPrivate: false
+          description: ""
+          sortKey: -1754533665546
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "providedList": [1, 3, 2, 7, 9, 0],
+                "studentList": [9, 8, 7, 3, 2, 1, 0],
+                "taskType": "EXAMPLE_LIST_SORT_DESCENDING"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/example-list-evaluation
+        name: Correctly sorted but one value missing
+        meta:
+          id: req_40a2d72732184e4494a95c036cdc5b1d
+          created: 1756041748850
+          modified: 1756041888847
+          isPrivate: false
+          description: ""
+          sortKey: -1754749071640
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "providedList": [1, 3, 2, 7, 9, 0],
+                "studentList": [9, 3, 2, 1, 0],
+                "taskType": "EXAMPLE_LIST_SORT_DESCENDING"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:5000/example-list-evaluation
+        name: Sorted ascending
+        meta:
+          id: req_f73483ce6a054633ad8b00d9bcc04e47
+          created: 1756041818948
+          modified: 1756041837931
+          isPrivate: false
+          description: ""
+          sortKey: -1755610696316
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "providedList": [1, 3, 2, 7, 9, 0],
+                "studentList": [0, 1, 2, 3, 7, 9],
+                "taskType": "EXAMPLE_LIST_SORT_DESCENDING"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_e2d5e1c90e6f2c31d674e5384073dedae0d9d793
+    created: 1756040801083
+    modified: 1756040801083
+environments:
+  name: Base Environment
+  meta:
+    id: env_e2d5e1c90e6f2c31d674e5384073dedae0d9d793
+    created: 1756040801082
+    modified: 1756040801082
+    isPrivate: false

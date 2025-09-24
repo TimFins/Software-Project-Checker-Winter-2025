@@ -1,0 +1,31 @@
+from flask import Flask, jsonify, request
+from evaluation import evaluate_list_sorting_task
+
+app = Flask(__name__)
+
+
+@app.route("/", methods=["GET"])
+def index():
+    """In case someone just tries to open this link in the browser, inform the user how the webserver should be used instead.
+    """
+    return """<h1>Connection Established</h1><p>The HTTP Server is running. Please note, that in order to actually use this service, you have to send POST requests to the implemented routes.</p><p>This page serves no functional purpose.</p>"""
+
+
+@app.route("/example-list-evaluation", methods=["POST"])
+def example_route():
+    """Example route showcasing how a route should be handled. Take the inputs, pass them to an evaluation function elsewhere and then answer with an example score and feedback.
+    """
+    print("A request has arrived!")
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"error": "Invalid JSON"}), 400
+    try:
+        score, feedback, solution = evaluate_list_sorting_task(data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
+    return jsonify({"score": score, "feedback": feedback, "solution": solution})
+
+
+if __name__ == "__main__":
+    app.run()
