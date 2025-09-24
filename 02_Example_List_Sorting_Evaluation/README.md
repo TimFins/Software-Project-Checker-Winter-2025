@@ -1,7 +1,7 @@
 # Evaluator Microservice For List Sorting
 
-The goal of this example is to show you a Python microservice, which provides detailed feedback to students solving list sorting exercises. In this example the student gets a list of numbers and the way they should be sorted, so in ascending order or descending order. After the student submits the exercise, a request is sent to the evaluator microservice checking whether the student solved the exercise correctly.
-All the HTTP POST requests for the list sorting topic are sent to the endpoint `/example-list-evaluation`. This endpoint checks which task type should be evaluated based on the `taskType` string contained in the request and forwards the task to the according function. Each of the two tasks which can be evaluated in this microservice, sorting in ascending order and sorting in descending order, has a task type.
+The goal of this example is to show you a Python microservice, which provides detailed feedback to students solving list sorting exercises. The Python code for this example is included in the `checker` directory. In this example the student gets a list of numbers and the way they should be sorted, so in ascending order or descending order. After the student submits the exercise, a request is sent to the evaluator microservice checking whether the student solved the exercise correctly.
+The HTTP POST requests for the list sorting topic are sent to the endpoint `/example-list-evaluation`. This endpoint checks which task type should be evaluated based on the `taskType` string contained in the request and forwards the task to the according function. Each of the two tasks which can be evaluated in this microservice, sorting in ascending order and sorting in descending order, has a task type.
 The HTTP POST request's body contains all the information about the task as well as the student's submission needed to evaluate the task. So, the route receives the provided list and the student's submission and responds back with a grade from 0 to 100, detailed feedback as text and the solution.
 
 ## Flask Server
@@ -44,7 +44,7 @@ Since Flask usually takes localhost port 5000, you will probably find your HTTP 
 > * Running on http://127.0.0.1:5000
 
 ### Send request to server
-If the server runs you can send a request to the given server by e.g., using command line tools like cURL or other API tools like Postman/Insomnia. We will be talking later about Postman/Insomnia.
+If the server runs you can send a request to the given server by e.g., using command line tools like cURL or other API tools like Insomnia. We will be talking later about Insomnia.
 You will have to send a POST request to the endpoint and pass the contents as a JSON body.
 
 #### Example body:

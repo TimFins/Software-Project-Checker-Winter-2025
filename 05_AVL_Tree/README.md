@@ -5,8 +5,7 @@ Within this directory you will find a python implementation for AVL trees which 
 Please have a look into the implementation and try to solve the exercises with it. There is no need to solve all exercises if you already understand how AVL trees work.
 
 An **AVL tree** is a type of self-balancing binary search tree (BST).  
-It maintains the property that for every node, the height difference (balance value)  
-between its left and right subtree is at most **1**.
+It maintains the property that for every node, the height difference (balance value) between its left and right subtree is at most **1**.
 
 ## Key Properties
 - **Binary Search Tree (BST) property**:  

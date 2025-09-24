@@ -1,6 +1,6 @@
 # Evaluator Microservice For AVL Trees
 
-The goal of this example is to create a Python microservice, which provides detailed feedback to students solving AVL tree exercises. The rough outline follows the example in `02_Example_List_Sorting_Evaluation`, but instead the endpoint `/avl-tree-evaluation` is used for evaluating AVL tree exercises.
+The goal is to create a Python microservice, which provides detailed feedback to students solving AVL tree exercises. The rough outline follows the example in `02_Example_List_Sorting_Evaluation`, but instead the endpoint `/avl-tree-evaluation` is used for evaluating AVL tree exercises.
 
 ## Request
 
