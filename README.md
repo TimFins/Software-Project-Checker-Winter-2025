@@ -108,6 +108,35 @@ def get_missing_values(student_values: list[int], required_values: list[int]) ->
     ...
 ```
 
+## Important Note on GitHub Usage
+
+As you will be working in small teams on the same repository, it is very important to handle GitHub carefully to avoid problems when collaborating.
+
+When working together on a shared repository, careless use of branches or pull requests (PRs) can cause issues. For example, if changes are pushed directly to the `main` branch without proper review, or if a PR is created incorrectly, you might accidentally overwrite or delete another student’s work.
+
+That’s why we use **branches**:
+
+- A branch is like a separate workspace where you can implement a feature or fix without touching the main code immediately.  
+- Once your work is ready, you create a a**pull request (PR)**. This allows your teammates to review and approve the changes before they are merged into the main branch.  
+
+Following this process helps keep the repository stable and prevents accidental loss of work.
+
+Please take extra care to always:
+
+1. Create a branch for your task.  
+2. Make your changes there.  
+3. Open a PR to merge your branch into `main`.  
+4. Have the PR reviewed before merging.  
+
+If needed, we can also discuss these practices further in the lecture to make sure everyone is confident with the workflow.
+
+### Getting Help
+If you run into problems, you may contact us through GitHub:  
+- Assign us to a PR and leave a comment, either on the PR itself or on specific lines of code.  
+- Please only do this for **severe problems** that you cannot solve on your own and for which you would like quick feedback.  
+- General or less urgent questions should be brought up during the lecture.  
+- If we consider an issue not severe, we might unassign ourselves from the PR and instead discuss it in class.
+
 ##### Important hints in regard to grading
 
 Here are some criteria, which we will look at when grading your work. At this time in the project, this information may be confusing. But while working on the project, these requirements will become clearer.
