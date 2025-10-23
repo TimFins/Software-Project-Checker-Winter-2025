@@ -50,7 +50,8 @@ We will have two Milestones this semester. One roughly at the halfway point and 
 
 ### Milestone 1
 
-The first milestone will consist of a presentation of roughly **10 minutes per person**. We are currently aiming for a presentation date in the week **27.10.2025 - 02.11.2025**. The exact time and date will be determined later.
+The first milestone will consist of a presentation of roughly **10 minutes per person**. The presentation date will be Thursday, October 30th, starting at 09:00.
+Please submit the presentation slides until Tuesday, October 28th 23:59. Each subgroup sends one E-Mail to both of us and put all others into CC.
 
 In said presentation we want to see the general concepts you have thought of for this project. Here are just some examples of what we mean by concepts:
 
