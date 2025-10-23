@@ -50,8 +50,8 @@ We will have two Milestones this semester. One roughly at the halfway point and 
 
 ### Milestone 1
 
-The first milestone will consist of a presentation of roughly **10 minutes per person**. The presentation date will be Thursday, October 30th, starting at 09:00.
-Please submit the presentation slides until Tuesday, October 28th 23:59. Each subgroup sends one E-Mail to both of us and put all others into CC.
+The first milestone will consist of a presentation of roughly **10 minutes per person**. The presentation date will be Thursday, **October 30th**, starting at **09:00**.
+Please submit the presentation slides until Tuesday, **October 28th 23:59**. Each subgroup sends one E-Mail to both of us and put all others into CC.
 
 In said presentation we want to see the general concepts you have thought of for this project. Here are just some examples of what we mean by concepts:
 
@@ -67,6 +67,8 @@ In said presentation we want to see the general concepts you have thought of for
 We would also like you to highlight popular mistakes that students could make and how you want to address them.
 
 We just want to make sure that you are on the right path and can keep on working. For that, we would welcome a rough plan, like what to work on next, and so on.
+For this we would ask each person to also do a short "Sprint Retrospective", where you discuss what went well or not so well. And what you would want to change going forward from a process perspective.
+You can also talk about how you use your GitHub repository in the groups to collaborate efficiently and smoothly. Were there any difficulties, which are now solved, or did everything go according to plan?
 
 ### Milestone 2 Contents
 
