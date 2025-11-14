@@ -72,7 +72,7 @@ You can also talk about how you use your GitHub repository in the groups to coll
 
 ### Milestone 2 Contents
 
-The second milestone will be the final presentation, which takes place at the very last appointment of our project, which should be in the week **08.12.2025 - 14.12.2025**.
+The second milestone will be the final presentation, which takes place at the very last appointment of our project, which should be in the week **11.12.2025**.
 
 There we want to see your final work product. So please present anything which you may find useful for us or the other project participants to know.
 
@@ -92,11 +92,14 @@ In order to be able to have your lecturer grade every one of you **individually*
 
 For both presentations, we would like to get your presentation slides beforehand, so that we can prepare. We will likely want you to send us your presentation slides the week before each presentation. But more information will follow once we have a time and date for the presentations themselves.
 
+Please send us your presentation slides until Tuesday, **09.12.2025 23:59**.
+
 We want a single person from your group to send us the presentation slides **as PDF** per E-Mail and put all other team members into CC.
 
 #### Codebase
 
 Before the final presentation, we want you to send us your codebase, which will also be graded.
+Please send us your codebase until Tuesday, **09.12.2025 23:59**.
 
 Please make sure to send us your final version, where all pending changes were applied. Please download the repository as a ZIP file and just send it to us like this. Please also do not forget to export your Insomnia test cases into a YAML file and include it into the project if you were using Insomnia for testing. You can just replace the requests file in the directory `/checker` with your updated version including additional requests.
 
