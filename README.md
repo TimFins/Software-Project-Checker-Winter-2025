@@ -70,13 +70,14 @@ We just want to make sure that you are on the right path and can keep on working
 For this we would ask each person to also do a short "Sprint Retrospective", where you discuss what went well or not so well. And what you would want to change going forward from a process perspective.
 You can also talk about how you use your GitHub repository in the groups to collaborate efficiently and smoothly. Were there any difficulties, which are now solved, or did everything go according to plan?
 
-### Milestone 2 Contents
+### Milestone 2
 
-The second milestone will be the final presentation, which takes place at the very last appointment of our project, which should be in the week **11.12.2025**.
+The second milestone will be the final presentation, which takes place at the very last appointment of our project, which will be on **Thursday, 11.12.2025** at **09:00**.
 
 There we want to see your final work product. So please present anything which you may find useful for us or the other project participants to know.
 
 We would like to see some examples, where you show an exercise, the student's submission and explain what feedback that student would receive.
+Please use Insomnia (or an alternative) to show us the capability of your checker.
 
 You could also explain how you structured your service and how you organized the codebase.
 
@@ -85,6 +86,8 @@ When showing code snippets or similar, please keep in mind that it should be eas
 ### Deliverables
 
 #### GitHub Contributions/Diary
+
+**This is only relevant if you were not using GitHub. So this should not concern you.**
 
 In order to be able to have your lecturer grade every one of you **individually**, we need to know what each person's responsibilities were and what they worked on. For this, there are two options. Our preferred option would be that everyone uses GitHub, and we track individual contributions via GitHub commits. Alternatively, those who do not wish to use GitHub must instead maintain a detailed spreadsheet, where they track their contributions for every week and send it to us at the end of the project. We would rather avoid that, but we do leave this option available for those not wanting to use GitHub. **Without GitHub commits (or alternatively a diary), your lecturer cannot properly grade your contributions to the code!**
 
